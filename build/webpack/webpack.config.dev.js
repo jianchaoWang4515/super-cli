@@ -10,7 +10,7 @@ function resolve(dir) {
 
 const config = {
     mode: 'development',
-    entry: resolve('/app.js'),
+    entry: resolve('/src/app.js'),
     output: {
         filename: 'bundle.js',
         path: resolve('/dist')
