@@ -15,7 +15,8 @@
     </div>
 </template>
 <script>
-import store from './store/';
+import store from '@/modules/my-vue-plugin/loginStore';
+import qs from 'qs';
 export default {
     name: 'login',
     beforeCreate() {
@@ -31,7 +32,17 @@ export default {
     },
     methods: {
         submitForm() {
-            this.$router.push({ path: 'home' })
+            let params = {
+                mobile: 13989456369,
+                password: 'Aa123456'
+            }
+            this.XHR.post('/platform/login', qs.stringify(params)).then((res) => {
+                if (res.code === 'success') {
+                    this.$store.commit('SET_LOGIN_INFOR', res.data);
+                    this.$router.push({ path: 'home' });
+                }
+            });
+            console.dir(this.XHR);
         }
     }
 }

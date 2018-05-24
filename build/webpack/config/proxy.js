@@ -1,6 +1,6 @@
 const porxy = [{
-    context: ["/auth", "/api"],
-    target: "http://localhost:3000",
+    context: ["/platform"],
+    target: "http://10.86.96.40:11200/",
 }];
 
 module.exports = porxy;

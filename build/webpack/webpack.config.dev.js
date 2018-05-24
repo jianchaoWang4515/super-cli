@@ -2,7 +2,8 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
-var { VueLoaderPlugin } = require('vue-loader');
+const { VueLoaderPlugin } = require('vue-loader');
+const proxy = require('./config/proxy');
 
 function resolve(dir) {
     return path.join(process.cwd(), dir);
@@ -50,7 +51,8 @@ const config = {
     devServer: {
         contentBase: resolve('/dist'),
         port: 9000,
-        hot: true
+        hot: true,
+        proxy
     },
     plugins: [
         new VueLoaderPlugin(), // 未知为什么需要本插件才可以解析vue中的html
