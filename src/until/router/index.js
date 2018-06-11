@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import loginStore from '@/modules/my-vue-plugin/loginStore';
 const ROUTER = function({ router, store, igroneUrl }) {
     router.beforeEach((to, from, next) => {
@@ -7,10 +8,12 @@ const ROUTER = function({ router, store, igroneUrl }) {
         store.commit('SET_LOGIN_STATE', { to, igroneUrl });
         let loginInfor = store.state.myLoginStore.loginInfor;
         let loginState = store.state.myLoginStore.loginState;
-        if (!loginInfor) {
-            // window.location.href = '/#/login';
-            next();
-            // next(false);
+        if (!loginInfor && to.path !== '/login') {
+            console.log(Vue.prototype)
+            Vue.prototype.$message('用户未登陆, 即将跳转到登陆页');
+            setTimeout(() => {
+                next('/login');
+            }, 2000)
         } else {
             next();
         }
