@@ -9,7 +9,6 @@ const ROUTER = function({ router, store, igroneUrl }) {
         let loginInfor = store.state.myLoginStore.loginInfor;
         let loginState = store.state.myLoginStore.loginState;
         if (!loginInfor && to.path !== '/login') {
-            console.log(Vue.prototype)
             Vue.prototype.$message('用户未登陆, 即将跳转到登陆页');
             setTimeout(() => {
                 next('/login');

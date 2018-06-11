@@ -19,7 +19,8 @@ const config = {
     module: {
         rules: [{
             test: /\.js$/,
-            use: 'babel-loader'
+            use: 'babel-loader',
+            exclude: [resolve('/src'), resolve('/node_modules/element-ui/src/utils/')]
         }, {
             test: /\.css$/,
             use: ['style-loader', 'css-loader']
