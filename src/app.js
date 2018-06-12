@@ -11,13 +11,14 @@ import '@/plugin/style/index.scss';
 Vue.use(VueRouter);
 Vue.use(ElementUi);
 
-ajax();
+const Xhr = ajax();
 
 const router = new VueRouter({
     routes: routes.routes
 });
 
 const ROUTER_CONFIG = {
+    Xhr,
 	router,
 	store,
 	igroneUrl: ['/login']

@@ -8,11 +8,10 @@ const mutations = {
         state.loginInfor = data;
     },
     SET_LOGIN_STATE(state, { to, igroneUrl }) {
-        for (let i = 0; i < to.matched.length; i++) {
-            if (igroneUrl.indexOf(to.matched[i]) >= 0) {
-            	state.loginState = true;
-            } else state.loginState = false;
+        if (igroneUrl.indexOf(to.path) >= 0) {
+            return true;
         }
+        return false;
     }
 };
 

@@ -18,8 +18,8 @@ const config = {
     },
     module: {
         rules: [{
-            test: /\.js$/,
-            use: 'babel-loader',
+            test: /\.(js|jsx)$/,
+            loader: 'babel-loader',
             exclude: [resolve('/src'), resolve('/node_modules/element-ui/src/utils/')]
         }, {
             test: /\.css$/,

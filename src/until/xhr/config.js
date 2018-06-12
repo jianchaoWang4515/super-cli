@@ -48,7 +48,7 @@ const XHR_CON = {
 };
 
 const ajax = function() {
-    new XHR(XHR_CON);
+    return new XHR(XHR_CON);
 };
 
 export default ajax;
