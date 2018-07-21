@@ -47,7 +47,25 @@ let TOOL = {
         }
 
         return { extend };
-    })()
+    })(),
+    // URL处理
+    GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    },
+    // 字符串消除前后空格
+    removeSpace(string) {
+        if (string) string = string.replace(/(^\s+)|(\s+$)/g, '');
+        return string;
+    }
 }
+
+TOOL.install = function(Vue) {
+    if (Vue.prototype.TOOL) return false
+    Vue.prototype.TOOL = this
+}
+
 
 export default TOOL;

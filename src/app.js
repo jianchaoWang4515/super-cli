@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import store from './until/store';
+import TOOL from './until/tool';
 import VueRouter from 'vue-router';
 import routes from './router';
 import myRouter from './until/router';
@@ -10,6 +11,8 @@ import '@/plugin/style/index.scss';
 
 Vue.use(VueRouter);
 Vue.use(ElementUi);
+// 注册工具
+Vue.use(TOOL);
 
 const Xhr = ajax();
 
@@ -19,21 +22,25 @@ const router = new VueRouter({
 
 const ROUTER_CONFIG = {
     Xhr,
-	router,
-	store,
-	igroneUrl: ['/login']
+    router,
+    store,
+    igroneUrl: ['/login']
 }
 
 myRouter(ROUTER_CONFIG);
 
-new Vue({
-    el: '#app',
-    name: 'test',
-    store,
-    router: router,
-    template: '<Base />',
-    components: { Base }
-});
+store.dispatch('initLang').then(i18n => {
+    console.log(i18n)
+    new Vue({
+        el: '#app',
+        name: 'test',
+        store,
+        i18n,
+        router: router,
+        template: '<Base />',
+        components: { Base }
+    });
+})
 
 
 // webpack热加载
