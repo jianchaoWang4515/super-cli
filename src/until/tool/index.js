@@ -59,6 +59,25 @@ let TOOL = {
     removeSpace(string) {
         if (string) string = string.replace(/(^\s+)|(\s+$)/g, '');
         return string;
+    },
+    // 导出
+    export (url, methods, params) {
+        var form = document.createElement("form");
+        form.style.display = 'none';
+        form.action = url;
+        form.method = methods;
+        document.body.appendChild(form);
+
+
+        for (var key in params) {
+            var input = document.createElement("input");
+            input.type = "hidden";
+            input.name = key;
+            input.value = params[key];
+            form.appendChild(input);
+        }
+        form.submit();
+        document.body.removeChild(form)
     }
 }
 
