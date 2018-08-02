@@ -37,6 +37,13 @@ const config = {
             test: /\.vue$/,
             loader: 'vue-loader'
         }, {
+            test: /\.(png|jpg|jpeg)(\?.*)?$/,
+            loader: 'url-loader',
+            options: {
+                limit: 10000,
+                name: 'images/[name].[hash:7].[ext]'
+            }
+        }, {
             test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
             loader: 'url-loader'
         }]

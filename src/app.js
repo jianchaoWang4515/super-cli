@@ -30,7 +30,6 @@ const ROUTER_CONFIG = {
 myRouter(ROUTER_CONFIG);
 
 store.dispatch('initLang').then(i18n => {
-    console.log(i18n)
     new Vue({
         el: '#app',
         name: 'test',
