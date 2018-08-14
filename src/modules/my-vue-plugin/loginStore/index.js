@@ -1,6 +1,7 @@
 const state = {
     loginState: false,
-    loginInfor: ''
+    loginInfor: '',
+    currentAuth: false
 };
 
 const mutations = {
@@ -8,14 +9,18 @@ const mutations = {
         state.loginInfor = data;
     },
     SET_LOGIN_STATE(state, { to, igroneUrl }) {
+        state.currentAuth = false;
         if (igroneUrl.indexOf(to.path) >= 0) {
-            return true;
+            state.currentAuth = true;
         }
-        return false;
     }
 };
 
+const actions = {
+}
+
 export default {
     state,
-    mutations
+    mutations,
+    actions
 };

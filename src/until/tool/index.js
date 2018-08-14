@@ -55,6 +55,12 @@ let TOOL = {
         if (r != null) return unescape(r[2]);
         return null;
     },
+    // 根据hash值str获取参数值
+    GetSearchVal(str, name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = url.substr(0).match(reg);
+        return r;
+    },
     // 字符串消除前后空格
     removeSpace(string) {
         if (string) string = string.replace(/(^\s+)|(\s+$)/g, '');

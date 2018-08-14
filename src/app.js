@@ -24,7 +24,7 @@ const ROUTER_CONFIG = {
     Xhr,
     router,
     store,
-    igroneUrl: ['/login']
+    igroneUrl: []
 }
 
 myRouter(ROUTER_CONFIG);
