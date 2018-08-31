@@ -18,7 +18,7 @@ export default {
     created() {
     	console.log(this.TOOL)
         console.log(this.$i18n)
-        this.XHR.get('/id?id=3333')
+        this.XHR.post('/mydb/getUsers')
     }
 };
 </script>

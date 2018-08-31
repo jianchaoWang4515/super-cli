@@ -20,7 +20,8 @@ const config = {
         rules: [{
             test: /\.(js|jsx)$/,
             loader: 'babel-loader',
-            exclude: [resolve('/src'), resolve('/node_modules/element-ui/src/utils/')]
+            include: [resolve('/src'), resolve('/node_modules/element-ui/src/utils/')], // 表示哪些目录中的 .js 文件需要进行 babel-loader
+            exclude: '/node_modules/' // 表示哪些目录中的 .js 文件不要进行 babel-loader
         }, {
             test: /\.css$/,
             use: ['style-loader', 'css-loader']
