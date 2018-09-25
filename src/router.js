@@ -1,11 +1,9 @@
 export default {
 	routes: [{
 		path: '/',
-		name: '/',
-		redirect: '/home',
 		component: require('@/modules/layout').default,
 		children: [{
-			path: '/home',
+			path: '',
 			name: 'home',
 			components: {
 				asiderMenu: require('@/modules/my-vue-plugin/menu').default,

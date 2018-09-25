@@ -34,7 +34,7 @@ export default {
         submitForm() {
             localStorage.setItem('userInfor', { name: 'jianchao.wang' })
             this.$store.commit('SET_LOGIN_INFOR', { name: 'jianchao.wang' });
-            this.$router.push({ path: 'home' });
+            this.$router.push({ path: '/' });
             // let params = {
             //     mobile: 13989456369,
             //     password: 'Aa123456'
