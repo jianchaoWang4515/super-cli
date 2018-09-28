@@ -1,3 +1,3 @@
-import MyMenu from './index.vue'
+import MyMenu from './index.vue';
 
-export default MyMenu
+export default MyMenu;

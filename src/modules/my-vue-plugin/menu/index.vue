@@ -14,5 +14,5 @@
 <script>
 	export default {
 	    name: 'myVueMenu'
-	}
+	};
 </script>

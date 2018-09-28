@@ -15,16 +15,16 @@
     </el-container>
 </template>
 <script>
-import Vue from 'vue'
-import MyVueHeader from '@/modules/my-vue-plugin/header'
+import Vue from 'vue';
+import MyVueHeader from '@/modules/my-vue-plugin/header';
 
-Vue.use(MyVueHeader)
+Vue.use(MyVueHeader);
 export default {
     name: 'layout',
     data () {
         return {
 
-        }
+        };
     }
-}
+};
 </script>

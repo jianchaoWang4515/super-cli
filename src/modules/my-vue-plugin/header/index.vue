@@ -29,15 +29,15 @@ export default {
     name: 'MyVueHeader',
     computed: {
         lang () {
-            return this.$i18n.locale
+            return this.$i18n.locale;
         }
     },
     methods: {
         logout () {
-            localStorage.setItem('userInfor', '')
-            this.$message('登出成功')
-            this.$store.commit('SET_LOGIN_INFOR', '')
-            this.$router.push('/login')
+            localStorage.setItem('userInfor', '');
+            this.$message('登出成功');
+            this.$store.commit('SET_LOGIN_INFOR', '');
+            this.$router.push('/login');
             // this.XHR.post('/platform/logout').then((res) => {
             //     if (res.code === 'success') {
             //      this.$message('登出成功');
@@ -49,8 +49,8 @@ export default {
             // });
         },
         changelang (lang) {
-            this.$store.dispatch('updateLang', { lang, i18n: this.$i18n })
+            this.$store.dispatch('updateLang', { lang, i18n: this.$i18n });
         }
     }
-}
+};
 </script>

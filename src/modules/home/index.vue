@@ -11,10 +11,10 @@ export default {
     data () {
         return {
             msg: 'Helllo my-vue'
-        }
+        };
     },
     created () {
     // this.XHR.post('/mydb/getUsers')
     }
-}
+};
 </script>

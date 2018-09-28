@@ -28,6 +28,7 @@ module.exports = {
         "indent": [WARN, 4], // 缩进
         "no-mixed-spaces-and-tabs": OFF, // spaces和tabs混合共用
         "no-new": OFF, 
-        "no-tabs": OFF
+        "no-tabs": OFF,
+        'semi': [WARN, "always"]
     }
 };

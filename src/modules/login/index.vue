@@ -15,12 +15,12 @@
     </div>
 </template>
 <script>
-import store from '@/modules/my-vue-plugin/loginStore'
+import store from '@/modules/my-vue-plugin/loginStore';
 import qs from 'qs' // eslint-disable-line
 export default {
     name: 'login',
     beforeCreate () {
-        if (!this.$store.state.myLoginStore) this.$store.registerModule('myLoginStore', store)
+        if (!this.$store.state.myLoginStore) this.$store.registerModule('myLoginStore', store);
     },
     data () {
         return {
@@ -28,13 +28,13 @@ export default {
                 account: '',
                 password: ''
             }
-        }
+        };
     },
     methods: {
         submitForm () {
-            localStorage.setItem('userInfor', { name: 'jianchao.wang' })
-            this.$store.commit('SET_LOGIN_INFOR', { name: 'jianchao.wang' })
-            this.$router.push({ path: '/' })
+            localStorage.setItem('userInfor', { name: 'jianchao.wang' });
+            this.$store.commit('SET_LOGIN_INFOR', { name: 'jianchao.wang' });
+            this.$router.push({ path: '/' });
             // let params = {
             //     mobile: 13989456369,
             //     password: 'Aa123456'
@@ -47,5 +47,5 @@ export default {
             // });
         }
     }
-}
+};
 </script>

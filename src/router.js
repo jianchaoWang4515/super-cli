@@ -19,4 +19,4 @@ export default {
         name: 'test',
         component: require('@/modules/test').default
     }]
-}
+};
