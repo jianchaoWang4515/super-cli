@@ -18,6 +18,15 @@ const config = {
     },
     module: {
         rules: [{
+            test: /\.(js|vue)$/,
+            loader: "eslint-loader",
+            enforce: 'pre', // 为了安全起见，您可以使用enforce: "pre"section检查源文件，而不是由其他加载器修改（如babel-loader）
+            include: [resolve('/src')],
+            options: {
+                formatter: require('eslint-friendly-formatter'),
+                emitWarning: true // 不符合规则警告提示
+            }
+        }, {
             test: /\.(js|jsx)$/,
             loader: 'babel-loader',
             include: [resolve('/src'), resolve('/node_modules/element-ui/src/utils/')], // 表示哪些目录中的 .js 文件需要进行 babel-loader

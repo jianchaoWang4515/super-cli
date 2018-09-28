@@ -1,12 +1,12 @@
-import Vue from 'vue';
-import XHR from './index';
+import Vue from 'vue'
+import XHR from './index'
 
 const XHR_CON = {
     config: {
         baseURL: '',
         maxStatus: 506
     },
-    catchContent(status, codeText) {
+    catchContent (status, codeText) {
     	let codeContent = {
             400: {
                 text: '<p>错误编码：400</p>'
@@ -29,26 +29,26 @@ const XHR_CON = {
             503: {
                 text: '<p>错误编码：503</p>'
             }
-        };
+        }
         if (codeContent[status]) {
             Vue.prototype.$message.error({
                 dangerouslyUseHTMLString: true,
                 message: codeContent[status].text
-            });
+            })
         };
     },
     interceptors: {
-        request(req) {
-            return req;
+        request (req) {
+            return req
         },
-        response(res) {
-            return res.data;
+        response (res) {
+            return res.data
         }
     }
-};
+}
 
-const ajax = function() {
-    return new XHR(XHR_CON);
-};
+const ajax = function () {
+    return new XHR(XHR_CON)
+}
 
-export default ajax;
+export default ajax

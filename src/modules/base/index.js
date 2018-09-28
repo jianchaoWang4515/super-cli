@@ -1,3 +1,3 @@
-import base from './index.vue';
+import base from './index.vue'
 
-export default base;
+export default base

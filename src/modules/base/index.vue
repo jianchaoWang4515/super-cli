@@ -1,8 +1,8 @@
 <template>
-	<router-view></router-view>
+    <router-view></router-view>
 </template>
 <script>
-	export default {
-		name: 'app-base'
-	}
+export default {
+    name: 'app-base'
+}
 </script>

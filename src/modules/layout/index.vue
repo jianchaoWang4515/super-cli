@@ -21,10 +21,10 @@ import MyVueHeader from '@/modules/my-vue-plugin/header'
 Vue.use(MyVueHeader)
 export default {
     name: 'layout',
-    data() {
+    data () {
         return {
 
-        };
+        }
     }
 }
 </script>

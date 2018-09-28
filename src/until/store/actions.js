@@ -6,7 +6,7 @@ import messages from '@/local'
 Vue.use(VueI18n)
 
 export default {
-    initLang({ state, commit, dispatch }) {
+    initLang ({ state, commit, dispatch }) {
         return new Promise((resolve, reject) => {
         	let lang = localStorage.lang || 'cn'
         	commit('CHANGE_LOCALE', lang)
@@ -18,7 +18,7 @@ export default {
             resolve(i18n)
         })
     },
-    updateLang({ state, commit, dispatch }, {lang, i18n}) {
+    updateLang ({ state, commit, dispatch }, { lang, i18n }) {
     	localStorage.setItem('lang', lang)
     	commit('CHANGE_LOCALE', lang)
     	i18n.locale = lang

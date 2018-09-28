@@ -1,46 +1,46 @@
-import Vue from 'vue';
-import axios from 'axios';
-import tool from '../tool';
+import Vue from 'vue'
+import axios from 'axios'
+import tool from '../tool'
 
-let XHR = function(config) {
-    this.reg();
-    let that = this;
+let XHR = function (config) {
+    this.reg()
+    let that = this
     let deConfig = {
         config: {
             baseURL: '',
             maxStatus: 500,
-            validateStatus(status) {
-                return that.catchStatus(status);
+            validateStatus (status) {
+                return that.catchStatus(status)
             }
         },
         interceptors: {
-            request(req) {
-                return req;
+            request (req) {
+                return req
             },
-            response(res) {
-                return res;
+            response (res) {
+                return res
             }
         }
-    };
-    this.OPTION = this.TOOL.object.extend(true, deConfig, config);
-    this.axios = axios.create(this.OPTION.config);
-    Vue.prototype.XHR = this.axios;
+    }
+    this.OPTION = this.TOOL.object.extend(true, deConfig, config)
+    this.axios = axios.create(this.OPTION.config)
+    Vue.prototype.XHR = this.axios
     // 请求拦截器
-    this.setIntercept();
-};
+    this.setIntercept()
+}
 
 XHR.prototype = {
-    reg() {
-        this.TOOL = tool;
+    reg () {
+        this.TOOL = tool
     },
-    setIntercept() {
-        let intercept = this.OPTION.interceptors,
-            req = intercept.request,
-            res = intercept.response;
-        if (req && typeof req === 'function') this.axios.interceptors.request.use(req);
-        if (res && typeof res === 'function') this.axios.interceptors.response.use(res);
+    setIntercept () {
+        let intercept = this.OPTION.interceptors
+        let req = intercept.request
+        let res = intercept.response
+        if (req && typeof req === 'function') this.axios.interceptors.request.use(req)
+        if (res && typeof res === 'function') this.axios.interceptors.response.use(res)
     },
-    setValidateStatus(status) {
+    setValidateStatus (status) {
         let codeContent = {
             400: {
                 text: '<p>错误编码：400</p>'
@@ -63,20 +63,20 @@ XHR.prototype = {
             503: {
                 text: '<p>错误编码：503</p>'
             }
-        };
+        }
         if (this.OPTION.catchContent && codeContent[status] && typeof this.OPTION.catchContent === 'function') {
-            this.OPTION.catchContent(status, codeContent[status]);
+            this.OPTION.catchContent(status, codeContent[status])
         } else if (codeContent[status]) {
             Vue.prototype.$message.error({
                 dangerouslyUseHTMLString: true,
                 message: codeContent[status].text
-            });
+            })
         }
     },
-    catchStatus(status) {
-        this.setValidateStatus(status);
-        return status < this.OPTION.config.maxStatus;
+    catchStatus (status) {
+        this.setValidateStatus(status)
+        return status < this.OPTION.config.maxStatus
     }
 }
 
-export default XHR;
+export default XHR

@@ -1,7 +1,7 @@
-import Layout from './index.vue';
+import Layout from './index.vue'
 
 Layout.install = function (Vue) {
-	Vue.component(Layout.name, Layout);
-};
+    Vue.component(Layout.name, Layout)
+}
 
-export default Layout;
+export default Layout
