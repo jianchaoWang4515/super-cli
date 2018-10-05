@@ -32,19 +32,16 @@ export default {
     },
     methods: {
         submitForm () {
-            localStorage.setItem('userInfor', { name: 'jianchao.wang' });
-            this.$store.commit('SET_LOGIN_INFOR', { name: 'jianchao.wang' });
-            this.$router.push({ path: '/' });
-            // let params = {
-            //     mobile: 13989456369,
-            //     password: 'Aa123456'
-            // }
-            // this.XHR.post('/platform/login', qs.stringify(params)).then((res) => {
-            //     if (res.code === 'success') {
-            //         // this.$store.commit('SET_LOGIN_INFOR', res.data);
-
-            //     }
-            // });
+            let params = { ...this.ruleForm2 };
+            this.XHR.post('/login', qs.stringify(params)).then((res) => {
+                if (res.code === 'success') {
+                    localStorage.setItem('userInfor', { name: 'jianchao.wang' });
+                    this.$store.commit('SET_LOGIN_INFOR', { name: 'jianchao.wang' });
+                    this.$router.push({ path: '/' });
+                } else {
+                    this.$message(res.message);
+                };
+            });
         }
     }
 };

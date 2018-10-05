@@ -14,7 +14,7 @@ export default {
         };
     },
     created () {
-    // this.XHR.post('/mydb/getUsers')
+        this.XHR.post('/mydb/getUsers');
     }
 };
 </script>
