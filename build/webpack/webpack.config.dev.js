@@ -3,14 +3,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader');
-const proxy = require('./config/proxy');
+const proxy = require(process.cwd() + '/build/config/proxy');
+const globalVar = require(process.cwd() + '/build/config/globalVar');
 
 function resolve(dir) {
     return path.join(process.cwd(), dir);
 };
 
 const config = {
-    mode: 'development',
+    mode: process.env.NODE_ENV === 'pro' ? 'production' : 'development',
     entry: resolve('/src/app.js'),
     output: {
         filename: 'bundle.js',
@@ -73,15 +74,17 @@ const config = {
         proxy
     },
     plugins: [
-        new VueLoaderPlugin(), // 未知为什么需要本插件才可以解析vue中的html
+        new VueLoaderPlugin(), // 新版webpack需要本插件才可以解析vue中的html
         new webpack.HotModuleReplacementPlugin(), //热加载插件
         new HtmlWebpackPlugin({
             title: 'Development',
             filename: path.join(process.cwd(), '/dist/index.html'),
             template: path.join(process.cwd(), '/index.html'),
             hash: true
+        }),
+        new webpack.DefinePlugin({
+          globalVar:  JSON.stringify(globalVar[process.env.NODE_ENV].globalVar)
         })
-
     ]
 };
 module.exports = config;

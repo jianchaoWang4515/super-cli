@@ -6,11 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "eslint": "eslint src --ext .js,.vue",
-    "build": "webpack --config ./build/webpack/webpack.config.dev.js",
+    "build": "cross-env NODE_ENV=pro webpack --config ./build/webpack/webpack.config.dev.js",
+    "build-pre": "cross-env NODE_ENV=pre webpack --config ./build/webpack/webpack.config.dev.js",
     "lint": "eslint src --ext .js,.vue --fix",
-    "start": "webpack-dev-server --open --config ./build/webpack/webpack.config.dev.js"
+    "start": "cross-env NODE_ENV=dev webpack-dev-server --open --config ./build/webpack/webpack.config.dev.js"
   },
-  "author": "",
+  "author": "jianchao.wang",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
@@ -27,6 +28,7 @@
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-3": "^6.24.1",
+    "cross-env": "^5.2.0",
     "css-loader": "^0.28.11",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^12.0.0",
