@@ -1,6 +1,6 @@
 {
   "name": "my-vue-test",
-  "version": "1.60.0",
+  "version": "1.61.0",
   "description": "vue-test",
   "main": "index.js",
   "scripts": {
