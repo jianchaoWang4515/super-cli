@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "commitmsg": "npm run lint && commitlint -e",
     "eslint": "eslint src --ext .js,.vue",
     "build": "cross-env NODE_ENV=pro webpack --config ./build/webpack/webpack.config.dev.js",
     "build-pre": "cross-env NODE_ENV=pre webpack --config ./build/webpack/webpack.config.dev.js",
@@ -45,6 +46,7 @@
     "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.1.1",
     "live-server": "^1.2.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
