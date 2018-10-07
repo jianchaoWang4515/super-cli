@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.43.0"></a>
+# [1.43.0](https://github.com/jianchaoWang4515/my-webpack-vue/compare/v1.1.0...v1.43.0) (2018-10-07)
+
+
+### Bug Fixes
+
+* git钩子命令放到hosky中 ([7e15615](https://github.com/jianchaoWang4515/my-webpack-vue/commit/7e15615))
+
+
+### Features
+
+* 增加post-commit钩子 ([98b3190](https://github.com/jianchaoWang4515/my-webpack-vue/commit/98b3190))
+
+
+
 <a name="1.42.0"></a>
 # [1.42.0](https://github.com/jianchaoWang4515/my-webpack-vue/compare/v1.1.0...v1.42.0) (2018-10-07)
 
