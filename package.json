@@ -1,6 +1,6 @@
 {
   "name": "my-vue-test",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "vue-test",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,8 @@
     "build": "cross-env NODE_ENV=pro webpack --config ./build/webpack/webpack.config.dev.js",
     "build-pre": "cross-env NODE_ENV=pre webpack --config ./build/webpack/webpack.config.dev.js",
     "lint": "eslint src --ext .js,.vue --fix",
-    "start": "cross-env NODE_ENV=dev webpack-dev-server --open --config ./build/webpack/webpack.config.dev.js"
+    "start": "cross-env NODE_ENV=dev webpack-dev-server --open --config ./build/webpack/webpack.config.dev.js",
+    "release": "standard-version"
   },
   "author": "jianchao.wang",
   "license": "ISC",
@@ -51,6 +52,7 @@
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
     "scss-loader": "0.0.1",
+    "standard-version": "^4.4.0",
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1",
     "vue-html-loader": "^1.2.4",
