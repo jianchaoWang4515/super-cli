@@ -64,7 +64,8 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "npm run lint"
+      "pre-commit": "npm run lint",
+      "post-commit": "npm run release"
     }
   }
 }
