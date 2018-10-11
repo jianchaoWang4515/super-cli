@@ -1,5 +1,7 @@
 <template>
-    <div></div>
+    <div>
+        跳转成功
+    </div>
 </template>
 <script>
 export default {

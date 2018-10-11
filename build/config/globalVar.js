@@ -4,6 +4,11 @@ module.exports = {
 			model: 'dev'
 		}
 	},
+	test: {
+		globalVar: {
+			model: 'test'
+		}
+	},
 	pre: {
 		globalVar: {
 			model: 'pre'

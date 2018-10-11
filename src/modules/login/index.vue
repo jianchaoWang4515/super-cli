@@ -33,7 +33,7 @@ export default {
     methods: {
         submitForm () {
             let params = { ...this.ruleForm2 };
-            this.XHR.post('/login', qs.stringify(params)).then((res) => {
+            this.XHR.post('/mydb/login', qs.stringify(params)).then((res) => {
                 if (res.code === 'success') {
                     localStorage.setItem('userInfor', { name: 'jianchao.wang' });
                     this.$store.commit('SET_LOGIN_INFOR', { name: 'jianchao.wang' });

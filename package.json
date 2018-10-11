@@ -8,6 +8,7 @@
     "eslint": "eslint src --ext .js,.vue",
     "build": "cross-env NODE_ENV=pro webpack --config ./build/webpack/webpack.config.dev.js",
     "build-pre": "cross-env NODE_ENV=pre webpack --config ./build/webpack/webpack.config.dev.js",
+    "build-test": "cross-env NODE_ENV=test webpack --config ./build/webpack/webpack.config.dev.js",
     "lint": "eslint src --ext .js,.vue --fix",
     "start": "cross-env NODE_ENV=dev webpack-dev-server --open --config ./build/webpack/webpack.config.dev.js",
     "release": "standard-version"

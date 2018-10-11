@@ -17,6 +17,7 @@ Vue.use(TOOL);
 const Xhr = ajax();
 
 const router = new VueRouter({
+    mode: 'history',
     routes: routes.routes
 });
 

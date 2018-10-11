@@ -1,5 +1,5 @@
 const porxy = [{
-    context: ["/id", "/mydb", "/login"],
+    context: ["/mydb"],
     target: "http://127.0.0.1:8011/",
 }];
 

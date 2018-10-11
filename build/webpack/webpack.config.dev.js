@@ -68,6 +68,7 @@ const config = {
         symlinks: false
     },
     devServer: {
+        historyApiFallback: true,
         contentBase: resolve('/dist'),
         port: 9000,
         hot: true,
