@@ -1,13 +1,11 @@
 import Vue from 'vue';
-import store from './until/store';
-import TOOL from './until/tool';
+import { store, TOOL, ajax } from './until';
+import myRouter from './until/router';
 import VueRouter from 'vue-router';
 import routes from './router';
-import myRouter from './until/router';
 import Base from '@/modules/base';
 import ElementUi from 'element-ui';
-import ajax from './until/xhr/config';
-import '@/plugin/style/index.scss';
+import '@/theme/index.scss';
 
 Vue.use(VueRouter);
 Vue.use(ElementUi);
