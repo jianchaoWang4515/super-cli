@@ -7,6 +7,7 @@
         <el-button>
             <router-link to="/test">测试路由history模式</router-link>
         </el-button>
+        <i class="iconfont icon-zuzhiguanli"></i>
     </div>
 </template>
 <script>

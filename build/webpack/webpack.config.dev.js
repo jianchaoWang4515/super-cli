@@ -84,7 +84,7 @@ const config = {
             hash: true
         }),
         new webpack.DefinePlugin({
-          globalVar:  JSON.stringify(globalVar[process.env.NODE_ENV].globalVar)
+          globalVar:  JSON.stringify(globalVar[process.env.NODE_ENV].globalVar) // 注册全局变量
         })
     ]
 };
