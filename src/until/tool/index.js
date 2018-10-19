@@ -1,15 +1,45 @@
 /* eslint-disable */
 let TOOL = {
-    object: (function () {
+    /*
+     * 判断是否为模糊对象
+     **/
+    isObject(value) {
+        return typeof value === 'object' && value !== null;
+    },
+    /*
+     * 判断是否为纯粹对象 由new Object()创建的
+     * @params {value} 需要判断的值
+     * @return {boolean} true or false
+     **/
+    isPlainObject(value) {
+        if (!this.isObject(value)) {
+            return false;
+        }
+
+        try {
+            const { constructor } = value;
+            const { prototype } = constructor;
+
+            return constructor && prototype && Object.prototype.hasOwnProperty.call(prototype, 'isPrototypeOf');
+        } catch (e) {
+            return false;
+        }
+    },
+    /*
+     * 对象处理
+     * @return {object}
+     * @returnKey {extend} 深复制
+     **/
+    object: (function() {
         var extend,
             _extend,
             _isObject
 
-        _isObject = function (o) {
+        _isObject = function(o) {
             return Object.prototype.toString.call(o) === '[object Object]'
         }
 
-        _extend = function self (destination, source) {
+        _extend = function self(destination, source) {
             var property
             for (property in destination) {
                 if (destination.hasOwnProperty(property)) {
@@ -28,7 +58,7 @@ let TOOL = {
             }
         }
 
-        extend = function () {
+        extend = function() {
             var arr = arguments,
                 result = {},
                 i
@@ -47,25 +77,39 @@ let TOOL = {
 
         return { extend }
     })(),
-    // URL处理
-    GetQueryString (name) {
+    /*
+     * url处理
+     **/
+    GetQueryString(name) {
         var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)')
         var r = window.location.search.substr(1).match(reg)
         if (r != null) return unescape(r[2])
         return null
     },
+    /*
+     * 根据hash值str获取参数值
+     **/
     // 根据hash值str获取参数值
-    GetSearchVal (str, name) {
+    GetSearchVal(str, name) {
         var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)')
         var r = url.substr(0).match(reg)
         return r
     },
-    // 字符串消除前后空格
-    removeSpace (string) {
+    /*
+     * 字符串消除前后空格
+     * @params {string} 需要处理的值
+     * @return {string} 处理后的结果
+     **/
+    removeSpace(string) {
         if (string) string = string.replace(/(^\s+)|(\s+$)/g, '')
         return string
     },
-    // 导出
+    /*
+     * 导出功能
+     * @params {url} 后台接口
+     * @params {methods} api类型
+     * @params {params} 参数对象
+     **/
     export (url, methods, params) {
         var form = document.createElement('form')
         form.style.display = 'none'
@@ -85,9 +129,9 @@ let TOOL = {
     }
 }
 
-TOOL.install = function (Vue) {
-    if (Vue.prototype.TOOL) return false
-    Vue.prototype.TOOL = this
+TOOL.install = function(Vue) {
+    if (Vue.prototype.$TOOL) return false
+    Vue.prototype.$TOOL = this
 }
 
 export default TOOL
