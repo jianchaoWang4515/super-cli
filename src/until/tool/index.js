@@ -17,8 +17,8 @@ let TOOL = {
         }
 
         try {
-            const { constructor } = value;
-            const { prototype } = constructor;
+            var { constructor } = value;
+            var { prototype } = constructor;
 
             return constructor && prototype && Object.prototype.hasOwnProperty.call(prototype, 'isPrototypeOf');
         } catch (e) {
