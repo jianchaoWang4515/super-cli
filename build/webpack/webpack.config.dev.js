@@ -5,6 +5,7 @@ const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader');
 const proxy = require(process.cwd() + '/build/config/proxy');
 const globalVar = require(process.cwd() + '/build/config/globalVar');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 function resolve(dir) {
     return path.join(process.cwd(), dir);
@@ -12,10 +13,14 @@ function resolve(dir) {
 
 const config = {
     mode: process.env.NODE_ENV === 'pro' ? 'production' : 'development',
-    entry: resolve('/src/app.js'),
+    entry: {
+        main: resolve('/src/app.js')
+        // vendor: ['vue', 'vue-router', 'element-ui']
+    },
     output: {
-        filename: 'bundle.js',
-        path: resolve('/dist')
+        filename: '[name].dll.js',
+        path: resolve('/dist'),
+        library: '[name]_library'
     },
     module: {
         rules: [{
@@ -30,8 +35,7 @@ const config = {
         }, {
             test: /\.(js|jsx)$/,
             loader: 'babel-loader',
-            include: [resolve('/src'), resolve('/node_modules/element-ui/src/utils/')], // 表示哪些目录中的 .js 文件需要进行 babel-loader
-            exclude: '/node_modules/' // 表示哪些目录中的 .js 文件不要进行 babel-loader
+            include: [resolve('/src'), resolve('/node_modules/element-ui/src/utils/')] // 表示哪些目录中的 .js 文件需要进行 babel-loader
         }, {
             test: /\.css$/,
             use: ['style-loader', 'css-loader']
@@ -75,7 +79,7 @@ const config = {
         proxy
     },
     plugins: [
-        new VueLoaderPlugin(), // 新版webpack需要本插件才可以解析vue中的html
+        new VueLoaderPlugin(), // webpack4.0需要本插件才可以解析vue中的html
         new webpack.HotModuleReplacementPlugin(), //热加载插件
         new HtmlWebpackPlugin({
             title: 'Development',
@@ -84,8 +88,24 @@ const config = {
             hash: true
         }),
         new webpack.DefinePlugin({
-          globalVar:  JSON.stringify(globalVar[process.env.NODE_ENV].globalVar) // 注册全局变量
-        })
-    ]
+            globalVar: JSON.stringify(globalVar[process.env.NODE_ENV].globalVar) // 注册全局变量
+        }) //热加载插件
+        // new webpack.DllPlugin({
+        //     // DllPlugin的name属性需要和libary保持一致
+        //     name: '[name]_library',
+        //     path: path.join(process.cwd(), 'dist', '[name]-manifest.json'),
+        //     // context需要和webpack.config.js保持一致
+        //     context: __dirname
+        // })
+    ],
+    optimization: {
+        minimizer: [
+            new UglifyJsPlugin({
+                uglifyOptions: {
+                    compress: false
+                }
+            })
+        ]
+    }
 };
 module.exports = config;

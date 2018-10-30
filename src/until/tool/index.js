@@ -9,7 +9,7 @@ let TOOL = {
     /*
      * 判断是否为纯粹对象 由new Object()创建的
      * @params {value} 需要判断的值
-     * @return {boolean} true or false
+     * @return {boolean} 判断结果
      **/
     isPlainObject(value) {
         if (!this.isObject(value)) {
@@ -89,7 +89,6 @@ let TOOL = {
     /*
      * 根据hash值str获取参数值
      **/
-    // 根据hash值str获取参数值
     GetSearchVal(str, name) {
         var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)')
         var r = url.substr(0).match(reg)

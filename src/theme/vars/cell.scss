@@ -1,0 +1,343 @@
+/* flex box */
+
+.sw-flex,
+.sw-flex-show,
+.sw-flex-column {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.sw-flex-hide {
+  display: none;
+}
+
+/* flex排列方式 */
+
+.sw-flex-row {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.sw-flex-row-reverse {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+.sw-flex-column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.sw-flex-column-reverse {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: column-reverse;
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+}
+
+/* flex容器内对齐方式 */
+
+.sw-flex-top {
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.sw-flex-middle {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.sw-flex-bottom {
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+.sw-flex-left {
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.sw-flex-center {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.sw-flex-right {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.sw-flex-stretch {
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.sw-flex-space-between {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.sw-flex-baseline {
+  -webkit-box-align: baseline;
+  -webkit-align-items: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+}
+
+.sw-flex-wrap {
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+/* flex栅格化 */
+
+.sw-flex-1,
+.sw-flex-fit {
+  -webkit-box-flex: 1 !important;
+  -webkit-flex: 1 !important;
+  -ms-flex: 1 !important;
+  flex: 1 !important;
+}
+
+.sw-flex-2 {
+  -webkit-box-flex: 2 !important;
+  -webkit-flex: 2 !important;
+  -ms-flex: 2 !important;
+  flex: 2 !important;
+}
+
+.sw-flex-3 {
+  -webkit-box-flex: 3 !important;
+  -webkit-flex: 3 !important;
+  -ms-flex: 3 !important;
+  flex: 3 !important;
+}
+
+.sw-flex-4 {
+  -webkit-box-flex: 4 !important;
+  -webkit-flex: 4 !important;
+  -ms-flex: 4 !important;
+  flex: 4 !important;
+}
+
+.sw-flex-5 {
+  -webkit-box-flex: 5 !important;
+  -webkit-flex: 5 !important;
+  -ms-flex: 5 !important;
+  flex: 5 !important;
+}
+
+.sw-flex-6 {
+  -webkit-box-flex: 6 !important;
+  -webkit-flex: 6 !important;
+  -ms-flex: 6 !important;
+  flex: 6 !important;
+}
+
+[sw-role='cell'],
+[sw-mode='x-equal'] {
+  @extend .sw-flex;
+}
+
+[sw-role='cell']>* {
+  -webkit-box-flex: 0;
+  -webkit-flex: none;
+  -ms-flex: none;
+  flex: none;
+}
+
+[sw-mode='y'],
+[sw-mode='y-equal'] {
+  @extend .sw-flex-column;
+}
+
+[sw-mode='wrap'] {
+  @extend .sw-flex-wrap;
+}
+
+[sw-show='true'] {
+  @extend .sw-flex-show;
+}
+
+[sw-show='false'] {
+  @extend .sw-flex-hide;
+}
+
+[sw-talign='left'] {
+  text-align: left;
+}
+
+[sw-talign='center'] {
+  text-align: center;
+}
+
+[sw-talign='left'] {
+  text-align: left;
+}
+
+[sw-talign='right'] {
+  text-align: right;
+}
+
+[sw-valign='bottom'] {
+  @extend .sw-flex-bottom;
+  @extend .sw-flex-left;
+}
+
+[sw-valign='middle'] {
+  @extend .sw-flex-middle;
+  @extend .sw-flex-left;
+}
+
+[sw-valign='top'] {
+  @extend .sw-flex-top;
+  @extend .sw-flex-left;
+}
+
+[sw-valign='baseline'] {
+  @extend .sw-flex-baseline;
+}
+
+[sw-align='center'] {
+  @extend .sw-flex-center;
+  text-align: center;
+}
+
+[sw-align='right'] {
+  @extend .sw-flex-right;
+  text-align: right;
+}
+
+[sw-align='left'] {
+  @extend .sw-flex-left;
+  text-align: left;
+}
+
+[sw-valign='fit'] {
+  @extend .sw-flex-stretch;
+}
+
+[sw-layout='fit'] {
+  @extend .sw-flex-1;
+}
+
+[sw-layout='text'] {
+  display: block !important;
+  padding: 5px !important;
+  line-height: 150%;
+}
+
+[sw-layout='text'] p {
+  text-indent: 2em;
+  margin: 5px 0 5px 5px;
+}
+
+[sw-mode='x-equal']>[sw-role='cell'] {
+  @extend .sw-flex-1;
+}
+
+[sw-mode='y-equal']>[sw-role='cell'] {
+  @extend .sw-flex-1;
+}
+
+[sw-mode='y'][sw-valign='middle'],
+[sw-mode='y-equal'][sw-valign='middle'] {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+[sw-mode='y'][sw-align='center'],
+[sw-mode='y-equal'][sw-align='center'] {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+[sw-mode='y'][sw-align='left'],
+[sw-mode='y-equal'][sw-align='left'] {
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+[sw-mode='y'][sw-align='right'],
+[sw-mode='y-equal'][sw-align='right'] {
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+}
+
+[sw-mode='wrap'][sw-layout='fit'] {
+  -webkit-box-align: start;
+  -webkit-align-content: flex-start;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
+}
+
+[sw-flex='1'] {
+  @extend .sw-flex-1;
+}
+
+[sw-flex='2'] {
+  @extend .sw-flex-2;
+}
+
+[sw-flex='3'] {
+  @extend .sw-flex-3;
+}
+
+[sw-flex='4'] {
+  @extend .sw-flex-4;
+}
+
+[sw-flex='5'] {
+  @extend .sw-flex-5;
+}
+
+[sw-flex='6'] {
+  @extend .sw-flex-6;
+}
+

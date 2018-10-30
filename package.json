@@ -11,7 +11,8 @@
     "build-test": "cross-env NODE_ENV=test webpack --config ./build/webpack/webpack.config.dev.js",
     "lint": "eslint src --ext .js,.vue --fix",
     "start": "cross-env NODE_ENV=dev webpack-dev-server --open --config ./build/webpack/webpack.config.dev.js",
-    "release": "standard-version"
+    "release": "standard-version",
+    "dll": "webpack --config ./build/webpack/webpack.config.dll.js"
   },
   "author": "jianchao.wang",
   "license": "ISC",
@@ -54,6 +55,7 @@
     "scss-loader": "0.0.1",
     "standard-version": "^4.4.0",
     "style-loader": "^0.21.0",
+    "uglifyjs-webpack-plugin": "^2.0.1",
     "url-loader": "^1.0.1",
     "vue-html-loader": "^1.2.4",
     "vue-style-loader": "^4.1.0",
