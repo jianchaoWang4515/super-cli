@@ -11,12 +11,25 @@ export default {
             }
         }]
     }, {
+        path: '/register',
+        name: 'register',
+        component: require('@/modules/register').default,
+        meta: {
+            login: 1 // 不需要判断登录权限
+        }
+    }, {
         path: '/login',
         name: 'login',
-        component: require('@/modules/login').default
+        component: require('@/modules/login').default,
+        meta: {
+            login: 1
+        }
     }, {
         path: '/test',
         name: 'test',
-        component: require('@/modules/test').default
+        component: require('@/modules/test').default,
+        meta: {
+            login: 1
+        }
     }]
 };

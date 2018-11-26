@@ -22,7 +22,7 @@ export default {
         };
     },
     created () {
-        this.XHR.post('/api/mydb/getUsers');
+        this.XHR.get('/wjc/get/2');
     },
     computed: {
         model () {

@@ -9,7 +9,7 @@ const ROUTER = function ({ Xhr, router, store, igroneUrl }) {
         let loginInfor = localStorage.getItem('userInfor');
         const currentAuth = store.state.myLoginStore.currentAuth;
         if (!currentAuth) {
-            if (!loginInfor && to.path !== '/login') {
+            if (!loginInfor && !to.meta.login) {
                 Vue.prototype.$message('用户未登陆');
                 next('/login');
             } else if (loginInfor && to.path === '/login') {

@@ -1,15 +1,16 @@
 <style lang="scss" scoped src="./style/index.scss"></style>
 <template>
-    <div class="login-page">
+    <div class="login-page" sw-role='cell' sw-align='center' sw-valign='middle'>
         <el-form :model="ruleForm2" status-icon ref="ruleForm2" label-width="100px" class="demo-ruleForm">
-            <el-form-item label="账号" prop="pass">
-                <el-input type="password" v-model="ruleForm2.account" auto-complete="off"></el-input>
+            <el-form-item label="手机号" prop="pass">
+                <el-input v-model="ruleForm2.account" auto-complete="off"></el-input>
             </el-form-item>
             <el-form-item label="密码" prop="checkPass">
                 <el-input type="password" v-model="ruleForm2.password" auto-complete="off"></el-input>
             </el-form-item>
             <el-form-item>
                 <el-button type="primary" @click="submitForm">提交</el-button>
+                <el-button type="primary" @click="onReg">注册</el-button>
             </el-form-item>
         </el-form>
     </div>
@@ -33,7 +34,7 @@ export default {
     methods: {
         submitForm () {
             let params = { ...this.ruleForm2 };
-            this.XHR.post('/api/mydb/login', qs.stringify(params)).then((res) => {
+            this.XHR.post('/wjc/login', qs.stringify(params)).then((res) => {
                 if (res.code === 'success') {
                     localStorage.setItem('userInfor', { name: 'jianchao.wang' });
                     this.$store.commit('SET_LOGIN_INFOR', { name: 'jianchao.wang' });
@@ -42,6 +43,9 @@ export default {
                     this.$message(res.message);
                 };
             });
+        },
+        onReg () {
+            this.$router.push({ path: 'register' });
         }
     }
 };

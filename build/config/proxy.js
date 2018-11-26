@@ -1,14 +1,14 @@
 
-const context = ["/api"];
+const context = ["/wjc"];
 
-const pathRewrite = {};
+const pathRewrite = {'/wjc': ''};
 
 context.map((item) => {
 	pathRewrite[`^${item}`] = '';
 })
 const porxy = [{
     context,
-    target: "http://127.0.0.1:8011/",
+    target: "http://localhost:9999/",
     pathRewrite
 }];
 
