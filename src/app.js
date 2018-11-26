@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import { store, TOOL, ajax } from './until';
+import { store, TOOL, Ajax } from './until';
 import myRouter from './until/router';
 import VueRouter from 'vue-router';
 import routes from './router';
@@ -12,7 +12,7 @@ Vue.use(ElementUi);
 // 注册工具
 Vue.use(TOOL);
 
-const Xhr = ajax();
+const Xhr = new Ajax();
 
 const router = new VueRouter({
     mode: 'history',

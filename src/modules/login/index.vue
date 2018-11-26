@@ -36,8 +36,6 @@ export default {
             let params = { ...this.ruleForm2 };
             this.XHR.post('/wjc/login', qs.stringify(params)).then((res) => {
                 if (res.code === 'success') {
-                    localStorage.setItem('userInfor', { name: 'jianchao.wang' });
-                    this.$store.commit('SET_LOGIN_INFOR', { name: 'jianchao.wang' });
                     this.$router.push({ path: '/' });
                 } else {
                     this.$message(res.message);

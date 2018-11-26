@@ -34,19 +34,18 @@ export default {
     },
     methods: {
         logout () {
-            localStorage.setItem('userInfor', '');
-            this.$message('登出成功');
-            this.$store.commit('SET_LOGIN_INFOR', '');
-            this.$router.push('/login');
-            // this.XHR.post('/platform/logout').then((res) => {
-            //     if (res.code === 'success') {
-            //      this.$message('登出成功');
-            //         this.$store.commit('SET_LOGIN_INFOR', '');
-            //         setTimeout(() => {
-            //          this.$router.push('/login');
-            //         }, 1000);
-            //     }
-            // });
+            this.XHR.post('/wjc/logout').then((res) => {
+                if (res.code === 'success') {
+                    this.$message({
+                        message: '登出成功',
+                        duration: 1000,
+                        onClose: () => {
+                            this.$store.commit('SET_LOGIN_INFOR', '');
+                            this.$router.push({ path: 'login' });
+                        }
+                    });
+                }
+            });
         },
         changelang (lang) {
             this.$store.dispatch('updateLang', { lang, i18n: this.$i18n });

@@ -7,7 +7,7 @@ const XHR_CON = {
         maxStatus: 506
     },
     catchContent (status, codeText) {
-    	let codeContent = {
+        let codeContent = {
             400: {
                 text: '<p>错误编码：400</p>'
             },
@@ -42,7 +42,19 @@ const XHR_CON = {
             return req;
         },
         response (res) {
-            return res.data;
+            let { data } = { ...res };
+            console.log(window.location);
+            console.log(window.location.pathname);
+            if (data.code === 'no-login' && location.pathname !== '/login') {
+                Vue.prototype.$message({
+                    message: data.message,
+                    duration: 1000,
+                    onClose () {
+                        location.href = '/login';
+                    }
+                });
+            }
+            return data;
         }
     }
 };

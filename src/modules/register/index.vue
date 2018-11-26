@@ -33,8 +33,8 @@ export default {
             this.XHR.post('/wjc/register', this.form).then(res => {
                 if (res.code === 'success') {
                     this.$message({
-                        type: 'success', 
-                        message:'注册成功， 请登录！'
+                        type: 'success',
+                        message: '注册成功， 请登录！'
                     });
                     this.$router.push({ path: 'login' });
                 }
