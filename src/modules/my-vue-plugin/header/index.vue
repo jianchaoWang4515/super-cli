@@ -41,7 +41,8 @@ export default {
                         duration: 1000,
                         onClose: () => {
                             this.$store.commit('SET_LOGIN_INFOR', '');
-                            this.$router.push({ path: 'login' });
+                            this.$store.dispatch('SESSION_INFO');
+                            // this.$router.push({ path: 'login' });
                         }
                     });
                 }

@@ -30,9 +30,9 @@ class Router {
                 if (loginInfo && to.path !== '/login') {
                     next();
                 } else {
-                    this.Xhr.axios.get('/wjc/get/2').then(res => {
+                    this.store.dispatch('SESSION_INFO').then(res => {
                         if (res.code !== 'no-login') {
-                            this.store.commit('SET_LOGIN_INFOR', { name: 'jianchao.wang' });
+                            this.store.commit('SET_LOGIN_INFOR', res.data);
                             if (to.path === '/login') {
                                 Vue.prototype.$message({ type: 'success', message: '用户已登录' });
                                 next('/');
