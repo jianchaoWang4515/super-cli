@@ -3,10 +3,10 @@
     <div class="login-page" sw-role='cell' sw-align='center' sw-valign='middle'>
         <el-form :model="ruleForm2" status-icon ref="ruleForm2" label-width="100px" class="demo-ruleForm">
             <el-form-item label="手机号" prop="pass">
-                <el-input v-model="ruleForm2.account" auto-complete="off"></el-input>
+                <el-input v-model="ruleForm2.account" auto-complete="off" @keyup.enter.native="submitForm"></el-input>
             </el-form-item>
             <el-form-item label="密码" prop="checkPass">
-                <el-input type="password" v-model="ruleForm2.password" auto-complete="off"></el-input>
+                <el-input type="password" v-model="ruleForm2.password" auto-complete="off" @keyup.enter.native="submitForm"></el-input>
             </el-form-item>
             <el-form-item>
                 <el-button type="primary" @click="submitForm">提交</el-button>
@@ -16,7 +16,7 @@
     </div>
 </template>
 <script>
-import store from '@/modules/my-vue-plugin/loginStore';
+import store from '@/modules/components/loginStore';
 import qs from 'qs';
 export default {
     name: 'login',

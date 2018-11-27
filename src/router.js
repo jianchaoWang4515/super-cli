@@ -1,12 +1,12 @@
 export default {
     routes: [{
         path: '/',
-        component: require('@/modules/layout').default,
+        component: require('@/modules/components/layout').default,
         children: [{
             path: '',
             name: 'home',
             components: {
-                asiderMenu: require('@/modules/my-vue-plugin/menu').default,
+                asiderMenu: require('@/modules/components/menu').default,
                 default: require('@/modules/home').default
             }
         }]
@@ -27,8 +27,6 @@ export default {
     }, {
         path: '/test',
         name: 'test',
-        component: require('@/modules/test').default,
-        meta: {
-        }
+        component: require('@/modules/test').default
     }]
 };

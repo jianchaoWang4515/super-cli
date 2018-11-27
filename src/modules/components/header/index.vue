@@ -40,9 +40,7 @@ export default {
                         message: '登出成功',
                         duration: 1000,
                         onClose: () => {
-                            this.$store.commit('SET_LOGIN_INFOR', '');
                             this.$store.dispatch('SESSION_INFO');
-                            // this.$router.push({ path: 'login' });
                         }
                     });
                 }
