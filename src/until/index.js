@@ -1,6 +1,6 @@
 import store from './store';
 import routers from './router';
 import TOOL from './tool';
-import Ajax from './xhr/config';
+import XHR from './xhr/config';
 
-export { store, routers, TOOL, Ajax };
+export { store, routers, TOOL, XHR };

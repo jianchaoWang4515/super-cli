@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import XHR from './index';
+import router from '../router';
 
 const XHR_CON = {
     config: {
@@ -43,8 +44,7 @@ const XHR_CON = {
         },
         response (res) {
             let { data } = { ...res };
-            console.log(window.location);
-            console.log(window.location.pathname);
+            console.log(router.router);
             if (data.code === 'no-login' && location.pathname !== '/login') {
                 Vue.prototype.$message({
                     message: data.message,
@@ -59,8 +59,4 @@ const XHR_CON = {
     }
 };
 
-const ajax = function () {
-    return new XHR(XHR_CON);
-};
-
-export default ajax;
+export default new XHR(XHR_CON);
