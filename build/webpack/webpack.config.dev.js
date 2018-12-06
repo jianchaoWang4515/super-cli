@@ -12,7 +12,7 @@ function resolve(dir) {
 };
 
 const config = {
-    mode: process.env.NODE_ENV === 'pro' ? 'production' : 'development',
+    mode: process.env.NODE_ENV === 'dev' ? 'development' : 'production',
     entry: {
         main: resolve('/src/app.js')
         // vendor: ['vue', 'vue-router', 'element-ui']
@@ -103,12 +103,12 @@ const config = {
             new UglifyJsPlugin({
                 uglifyOptions: {
                     output: {
-                        comments: false
+                        comments: false // 删除注释
                     },
                     compress: {
                         warnings: false,
-                        drop_debugger: true,
-                        drop_console: true
+                        drop_debugger: true, // 删除debugger
+                        drop_console: true // 删除console
                     }
                 }
             })
