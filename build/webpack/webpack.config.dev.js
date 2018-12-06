@@ -89,7 +89,7 @@ const config = {
         }),
         new webpack.DefinePlugin({
             globalVar: JSON.stringify(globalVar[process.env.NODE_ENV].globalVar) // 注册全局变量
-        }) //热加载插件
+        })
         // new webpack.DllPlugin({
         //     // DllPlugin的name属性需要和libary保持一致
         //     name: '[name]_library',
@@ -102,7 +102,14 @@ const config = {
         minimizer: [
             new UglifyJsPlugin({
                 uglifyOptions: {
-                    compress: false
+                    output: {
+                        comments: false
+                    },
+                    compress: {
+                        warnings: false,
+                        drop_debugger: true,
+                        drop_console: true
+                    }
                 }
             })
         ]
