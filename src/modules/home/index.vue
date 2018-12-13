@@ -23,7 +23,6 @@ export default {
     },
     created () {
         this.XHR.get('/wjc/get/2');
-        console.log(1111);
     },
     computed: {
         model () {

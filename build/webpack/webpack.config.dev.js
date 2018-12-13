@@ -15,7 +15,6 @@ const config = {
     mode: process.env.NODE_ENV === 'dev' ? 'development' : 'production',
     entry: {
         main: resolve('/src/app.js')
-        // vendor: ['vue', 'vue-router', 'element-ui']
     },
     output: {
         filename: '[name].dll.js',
@@ -90,13 +89,6 @@ const config = {
         new webpack.DefinePlugin({
             globalVar: JSON.stringify(globalVar[process.env.NODE_ENV].globalVar) // 注册全局变量
         })
-        // new webpack.DllPlugin({
-        //     // DllPlugin的name属性需要和libary保持一致
-        //     name: '[name]_library',
-        //     path: path.join(process.cwd(), 'dist', '[name]-manifest.json'),
-        //     // context需要和webpack.config.js保持一致
-        //     context: __dirname
-        // })
     ],
     optimization: {
         minimizer: [
