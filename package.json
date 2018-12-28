@@ -7,7 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "eslint": "eslint src --ext .js,.vue",
     "premy-webpack": "npm run dll",
-    "prestart": "npm run dll",
     "build": "cross-env NODE_ENV=pro npm run my-webpack",
     "build-pre": "cross-env NODE_ENV=pre npm run my-webpack",
     "build-test": "cross-env NODE_ENV=test npm run my-webpack",
@@ -31,6 +30,7 @@
   "devDependencies": {
     "@commitlint/cli": "^7.2.0",
     "@commitlint/config-conventional": "^7.1.2",
+    "autoprefixer": "^9.4.3",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^7.1.4",
