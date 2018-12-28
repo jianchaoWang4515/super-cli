@@ -1,12 +1,13 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader');
 const proxy = require(process.cwd() + '/build/config/proxy');
 const globalVar = require(process.cwd() + '/build/config/globalVar');
 const DllReferencePlugin = require('webpack/lib/DllReferencePlugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const HappyPack = require('./happyPack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 function resolve(dir) {
     return path.join(process.cwd(), dir);
@@ -18,36 +19,37 @@ const config = {
         main: resolve('/src/app.js')
     },
     output: {
-        filename: '[name].dll.js',
+        filename: '[name].js',
         path: resolve('/dist'),
         library: '[name]_library'
     },
     module: {
         rules: [{
             test: /\.(js|vue)$/,
-            loader: "eslint-loader",
+            use: ['happypack/loader?id=eslint'],
             enforce: 'pre', // 为了安全起见，您可以使用enforce: "pre"section检查源文件，而不是由其他加载器修改（如babel-loader）
-            include: [resolve('/src')],
-            options: {
-                formatter: require('eslint-friendly-formatter'),
-                emitWarning: true // 不符合规则警告提示
-            }
+            include: [resolve('/src')]
         }, {
             test: /\.(js|jsx)$/,
-            loader: 'babel-loader',
+            use: ['happypack/loader?id=babel'],
             include: [resolve('/src'), resolve('/node_modules/element-ui/src/utils/')] // 表示哪些目录中的 .js 文件需要进行 babel-loader
         }, {
             test: /\.css$/,
-            use: ['style-loader', 'css-loader']
+            // 编译Sass文件 提取CSS文件 把css从js中提取出来
+            use: ExtractTextPlugin.extract({
+                // 如果配置成不提取，则此类文件使用style-loader插入到<head>标签中
+                fallback: 'style-loader',
+                use: 'HappyPack/loader?id=css'
+            })
         }, {
             test: /\.scss$/,
-            use: [{
-                loader: "style-loader" // 将 JS 字符串生成为 style 节点
-            }, {
-                loader: "css-loader" // 将 CSS 转化成 CommonJS 模块
-            }, {
-                loader: "sass-loader" // 将 Sass 编译成 CSS
-            }]
+            // 编译Sass文件 提取CSS文件 把css从js中提取出来 
+            // 使用happypack需使用此操作提取 不然会报错
+            use: ExtractTextPlugin.extract({
+                // 如果配置成不提取，则此类文件使用style-loader插入到<head>标签中
+                fallback: 'style-loader',
+                use: 'HappyPack/loader?id=scss'
+            })
         }, {
             test: /\.vue$/,
             loader: 'vue-loader'
@@ -81,6 +83,9 @@ const config = {
     plugins: [
         new VueLoaderPlugin(), // webpack4.0需要本插件才可以解析vue中的html
         new webpack.HotModuleReplacementPlugin(), //热加载插件
+        // extract-text-webpack-plugin还不能支持webpack4.0.0以上的版本，办法如下:
+        // npm install –save-dev extract-text-webpack-plugin@next 会下载到+ extract-text-webpack-plugin@4.0.0-beta.0 
+        new ExtractTextPlugin ("style.css"),  
         new HtmlWebpackPlugin({
             title: 'Development',
             filename: path.join(process.cwd(), '/dist/index.html'),
@@ -112,4 +117,5 @@ const config = {
         ]
     }
 };
+HappyPack(config);
 module.exports = config;
