@@ -5,6 +5,7 @@ const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader');
 const proxy = require(process.cwd() + '/build/config/proxy');
 const globalVar = require(process.cwd() + '/build/config/globalVar');
+const DllReferencePlugin = require('webpack/lib/DllReferencePlugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 function resolve(dir) {
@@ -85,6 +86,10 @@ const config = {
             filename: path.join(process.cwd(), '/dist/index.html'),
             template: path.join(process.cwd(), '/index.html'),
             hash: true
+        }),
+        new DllReferencePlugin({
+            context: resolve('dist'),
+            manifest: require(resolve('/dist/vendor.manifest.json'))
         }),
         new webpack.DefinePlugin({
             globalVar: JSON.stringify(globalVar[process.env.NODE_ENV].globalVar) // 注册全局变量
