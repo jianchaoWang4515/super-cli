@@ -21,7 +21,7 @@ module.exports = {
     // 文件名称
     filename: '[name].dll.js',
     // 将输出的文件放到dist目录下
-    path: path.join(process.cwd(), 'dist'),
+    path: path.join(process.cwd(), 'dist/assets'),
 
     /*
      存放相关的dll文件的全局变量名称，比如对于jquery来说的话就是 _dll_jquery, 在前面加 _dll

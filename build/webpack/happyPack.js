@@ -3,7 +3,8 @@
  */
 
 const HappyPack = require('happypack');
-const happyThreadPool = HappyPack.ThreadPool({ size: 5 });
+const happyThreadPool = HappyPack.ThreadPool({ size: 4 });
+const untils = require('./untils');
 
 module.exports = function(config) {
     let conf = {
@@ -29,8 +30,14 @@ module.exports = function(config) {
             threadPool: happyThreadPool,
             // 将 CSS 转化成 CommonJS 模块、将 Sass 编译成 CSS
             loaders: [
-                'css-loader', // 将 CSS 转化成 CommonJS 模块
-                'postcss-loader',
+                {
+                    loader: 'css-loader', // 将 CSS 转化成 CommonJS 模块
+                    options: {
+                        minimize: true,
+                        sourceMap: false
+                    }
+                },
+                untils.postcssLoader(),
                 'fast-sass-loader' // 将 Sass 编译成 CSS
             ]
         }),
@@ -39,7 +46,16 @@ module.exports = function(config) {
             // 使用共享进程池中的子进程去处理任务
             threadPool: happyThreadPool,
             // 将 CSS 转化成 CommonJS 模块
-            loaders: ['css-loader', 'style-loader', 'postcss-loader',]
+            loaders: [
+                {
+                    loader: 'css-loader',
+                    options: {
+                        minimize: true,
+                        sourceMap: false
+                    }
+                }, 
+                untils.postcssLoader()
+            ]
         })
     }
     for(var key in conf) {

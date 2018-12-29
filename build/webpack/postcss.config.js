@@ -1,5 +1,10 @@
+/**
+ * 增加浏览器前缀
+ */
 module.exports = {
-    autoprefixer: {
-        browsers: ['last 3 versions'],
-    }
+    plugins: [
+        require('autoprefixer')({
+            browsers: ['last 30 versions', "> 2%", "Firefox >= 10", "ie >= 9"]
+        })
+    ]
 };

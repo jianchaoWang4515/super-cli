@@ -3,7 +3,8 @@
     <div class="vue-layout">
         <span v-t="'message.hello'"></span>
         <span>{{model}}</span>
-        <img src="./images/bg2.png" width="100">
+        <img src="./image/bg2.png" width="100">
+        <div class="bk-bg">aaaaa</div>
         <el-button>
             <router-link to="/test">测试路由history模式</router-link>
         </el-button>
