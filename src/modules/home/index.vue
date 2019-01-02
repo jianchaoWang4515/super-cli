@@ -4,7 +4,7 @@
         <span v-t="'message.hello'"></span>
         <span>{{model}}</span>
         <img src="./image/bg2.png" width="100">
-        <div class="bk-bg">aaaaa</div>
+        <div class="bk-bg">aa啊啊啊</div>
         <el-button>
             <router-link to="/test">测试路由history模式</router-link>
         </el-button>

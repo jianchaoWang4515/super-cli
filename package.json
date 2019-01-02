@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "eslint": "eslint src --ext .js,.vue",
     "premy-webpack": "npm run dll",
+    "prestart": "npm run dll",
     "build": "cross-env NODE_ENV=pro npm run my-webpack",
     "build-pre": "cross-env NODE_ENV=pre npm run my-webpack",
     "build-test": "cross-env NODE_ENV=test npm run my-webpack",

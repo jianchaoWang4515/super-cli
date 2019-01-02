@@ -7,7 +7,7 @@ const globalVar = require(process.cwd() + '/build/config/globalVar');
 const DllReferencePlugin = require('webpack/lib/DllReferencePlugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HappyPack = require('./happyPack');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin"); 
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 function resolve(dir) {
     return path.join(process.cwd(), dir);
@@ -21,6 +21,7 @@ const config = {
     output: {
         filename: '[name].js',
         path: resolve('/dist'),
+        // publicPath: 'assets/',
         library: '[name]_library'
     },
     module: {
@@ -45,7 +46,7 @@ const config = {
             /**
              *  MiniCssExtractPlugin 适用于webpack@4.0+
              * 开发环境不抽离css
-             * */ 
+             * */
             use: [
                 process.env.NODE_ENV === 'dev' ? 'style-loader' : MiniCssExtractPlugin.loader,
                 'happypack/loader?id=css'
@@ -75,7 +76,11 @@ const config = {
             }
         }, {
             test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-            loader: 'url-loader'
+            loader: 'url-loader',
+            options: {
+                limit: 10000,
+                name: 'assets/fonts/[name].[hash:7].[ext]'
+            }
         }]
     },
     resolve: {
@@ -102,13 +107,14 @@ const config = {
          * webpack@4.0+ 建议使用mini-css-extract-plugin插件
          */
         // new ExtractTextPlugin ("style.css"),
+
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[id].css"
         }),
         new HtmlWebpackPlugin({
             title: 'Development',
-            filename: 'index.html',
+            filename: path.join(process.cwd(), 'dist/index.html'),
             template: path.join(process.cwd(), '/src/index.html'),
             hash: true
         }),
