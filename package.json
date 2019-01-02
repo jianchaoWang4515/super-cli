@@ -11,11 +11,11 @@
     "build": "cross-env NODE_ENV=pro npm run my-webpack",
     "build-pre": "cross-env NODE_ENV=pre npm run my-webpack",
     "build-test": "cross-env NODE_ENV=test npm run my-webpack",
-    "my-webpack": "webpack --config ./build/webpack/webpack.config.dev.js",
+    "my-webpack": "webpack --config ./node_modules/@superchao/webpack-sdk/webpack.config.dev.js",
     "lint": "eslint src --ext .js,.vue --fix",
-    "start": "cross-env NODE_ENV=dev webpack-dev-server --open --config ./build/webpack/webpack.config.dev.js",
+    "start": "cross-env NODE_ENV=dev webpack-dev-server --open --config ./node_modules/@superchao/webpack-sdk",
     "release": "standard-version",
-    "dll": "webpack --config ./build/webpack/webpack.config.dll.js"
+    "dll": "webpack --config ./node_modules/@superchao/webpack-sdk/webpack.config.dll.js"
   },
   "author": "jianchao.wang",
   "license": "ISC",
@@ -31,6 +31,7 @@
   "devDependencies": {
     "@commitlint/cli": "^7.2.0",
     "@commitlint/config-conventional": "^7.1.2",
+    "@superchao/webpack-sdk": "^1.0.1",
     "autoprefixer": "^9.4.3",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
