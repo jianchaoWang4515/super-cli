@@ -15,7 +15,7 @@
     </el-container>
 </template>
 <script>
-import MyVueHeader from '@/modules/components/header/index';
+import MyVueHeader from '@/views/components/header/index';
 
 export default {
     name: 'layout',

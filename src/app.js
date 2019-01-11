@@ -20,6 +20,3 @@ store.dispatch('initLang').then(i18n => {
         components: { Base }
     });
 });
-
-// webpack热加载
-if (module.hot) { module.hot.accept(); };

@@ -3,7 +3,7 @@ import store from '../store';
 import XHR from '../xhr/config';
 import VueRouter from 'vue-router';
 import routers from '@/router';
-import loginStore from '@/modules/components/loginStore';
+import loginStore from '@/views/components/loginStore';
 class Router {
     constructor ({ XHR, store }) {
         this.Xhr = XHR;

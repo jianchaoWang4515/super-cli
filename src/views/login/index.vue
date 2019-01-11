@@ -16,7 +16,7 @@
     </div>
 </template>
 <script>
-import store from '@/modules/components/loginStore';
+import store from '@/views/components/loginStore';
 import qs from 'qs';
 export default {
     name: 'login',

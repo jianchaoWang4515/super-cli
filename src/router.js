@@ -1,32 +1,32 @@
 export default {
     routes: [{
         path: '/',
-        component: require('@/modules/components/layout').default,
+        component: require('@/views/components/layout').default,
         children: [{
             path: '',
             name: 'home',
             components: {
-                asiderMenu: require('@/modules/components/menu').default,
-                default: require('@/modules/home').default
+                asiderMenu: require('@/views/components/menu').default,
+                default: require('@/views/home').default
             }
         }]
     }, {
         path: '/register',
         name: 'register',
-        component: require('@/modules/register').default,
+        component: require('@/views/register').default,
         meta: {
             loginAuth: 1 // 不需要判断登录权限
         }
     }, {
         path: '/login',
         name: 'login',
-        component: require('@/modules/login').default,
+        component: require('@/views/login').default,
         meta: {
             loginAuth: 1
         }
     }, {
         path: '/test',
         name: 'test',
-        component: require('@/modules/test').default
+        component: require('@/views/test').default
     }]
 };
