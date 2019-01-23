@@ -40,6 +40,9 @@ export default {
                 }
             });
         }
+    },
+    mounted () {
+        this.XHR.get('/wjc');
     }
 };
 </script>

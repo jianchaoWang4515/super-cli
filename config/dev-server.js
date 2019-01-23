@@ -9,9 +9,9 @@ context.map((item) => {
 
 module.exports = {
     port: 9001,
-    porxy: [{
+    proxy: [{
         context,
-        target: "http://localhost:9999/",
+        target: "http://localhost:9998/",
         pathRewrite
     }]
 };
