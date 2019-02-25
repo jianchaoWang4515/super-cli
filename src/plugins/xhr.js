@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import XHR from './index';
+import { XHR } from '@superchao/super';
 
 const XHR_CON = {
     config: {

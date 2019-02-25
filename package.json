@@ -20,6 +20,7 @@
   "author": "jianchao.wang",
   "license": "ISC",
   "dependencies": {
+    "@superchao/super": "^1.0.6",
     "@superchao/super-style": "^1.0.2",
     "axios": "^0.18.0",
     "element-ui": "^2.3.8",

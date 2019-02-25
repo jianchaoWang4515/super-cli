@@ -10,7 +10,7 @@ const mutations = {
 
 const actions = {
     SESSION_INFO () {
-        return this.XHR.get('/wjc/session-info');
+        return this.XHR.get('/wjc/session/info');
     }
 };
 

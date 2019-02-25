@@ -28,5 +28,12 @@ export default {
         path: '/test',
         name: 'test',
         component: require('@/views/test').default
+    }, {
+        path: '/404',
+        name: '404',
+        component: require('@/views/errors/404').default
+    }, {
+        path: '*',
+        redirect: '/404'
     }]
 };

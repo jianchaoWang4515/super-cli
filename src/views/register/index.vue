@@ -42,7 +42,7 @@ export default {
         }
     },
     mounted () {
-        this.XHR.get('/wjc');
+        this.XHR.post('/wjc/login', { account: 'wangjianchao', password: '123456' });
     }
 };
 </script>

@@ -34,7 +34,7 @@ export default {
     },
     methods: {
         logout () {
-            this.XHR.post('/wjc/logout').then((res) => {
+            this.XHR.delete('/wjc/session/logout').then((res) => {
                 if (res.code === 'success') {
                     this.$message({
                         message: '登出成功',

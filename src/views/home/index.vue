@@ -23,7 +23,7 @@ export default {
         };
     },
     created () {
-        this.XHR.get('/wjc/get/2');
+        // this.XHR.get('/wjc/get/2');
     },
     computed: {
         model () {
