@@ -1,5 +1,5 @@
 # webpack-vue
-webpack+vue 简单脚手架
+webpack+vue (内部嵌入了vuex,i18n国际化等插件)简单脚手架
 (建议使用cli命令下载)</br>
 
 
