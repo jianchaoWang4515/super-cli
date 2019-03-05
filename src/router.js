@@ -1,37 +1,37 @@
 export default {
     routes: [{
         path: '/',
-        component: require('@/views/components/layout').default,
+        component: () => import('@/views/components/layout/index.vue'),
         children: [{
             path: '',
             name: 'home',
             components: {
-                asiderMenu: require('@/views/components/menu').default,
-                default: require('@/views/home').default
+                asiderMenu: () => import('@/views/components/menu'),
+                default: () => import('@/views/home')
             }
         }]
     }, {
         path: '/register',
         name: 'register',
-        component: require('@/views/register').default,
+        component: () => import('@/views/register'),
         meta: {
             loginAuth: 1 // 不需要判断登录权限
         }
     }, {
         path: '/login',
         name: 'login',
-        component: require('@/views/login').default,
+        component: () => import('@/views/login'),
         meta: {
             loginAuth: 1
         }
     }, {
         path: '/test',
         name: 'test',
-        component: require('@/views/test').default
+        component: () => import('@/views/test')
     }, {
         path: '/404',
         name: '404',
-        component: require('@/views/errors/404').default
+        component: () => import('@/views/errors/404')
     }, {
         path: '*',
         redirect: '/404'

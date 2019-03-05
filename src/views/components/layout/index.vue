@@ -1,4 +1,3 @@
-<style lang="scss" src="./style/index.scss"></style>
 <template>
     <el-container>
         <el-header>
@@ -29,3 +28,4 @@ export default {
     }
 };
 </script>
+<style lang="scss" src="./style/index.scss"></style>

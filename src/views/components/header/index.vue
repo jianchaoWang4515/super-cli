@@ -1,20 +1,3 @@
-<style lang="scss" scoped>
-.app-header {
-    height: 100%;
-    &__logout {
-        vertical-align: middle;
-        line-height: 60px;
-    }
-    .local-box {
-        &__item {
-            padding: 0 8px;
-            &.active {
-                color: #fff;
-            }
-        }
-    }
-}
-</style>
 <template>
     <div class="app-header app-flex">
         <ul class="local-box app-flex app-flex-o">
@@ -59,3 +42,20 @@ export default {
     }
 };
 </script>
+<style lang="scss" scoped>
+.app-header {
+    height: 100%;
+    &__logout {
+        vertical-align: middle;
+        line-height: 60px;
+    }
+    .local-box {
+        &__item {
+            padding: 0 8px;
+            &.active {
+                color: #fff;
+            }
+        }
+    }
+}
+</style>
