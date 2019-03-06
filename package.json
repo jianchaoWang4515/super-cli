@@ -15,6 +15,7 @@
     "lint": "eslint src --ext .js,.vue --fix",
     "start": "cross-env NODE_ENV=dev webpack-dev-server --open --config ./node_modules/@superchao/webpack-sdk",
     "release": "standard-version",
+    "predll": "rimraf dist",
     "dll": "webpack --config ./node_modules/@superchao/webpack-sdk/webpack.config.dll.js"
   },
   "author": "jianchao.wang",
@@ -33,7 +34,7 @@
   "devDependencies": {
     "@commitlint/cli": "^7.2.0",
     "@commitlint/config-conventional": "^7.1.2",
-    "@superchao/webpack-sdk": "^1.0.7",
+    "@superchao/webpack-sdk": "^1.0.8",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^12.0.0",
     "eslint-friendly-formatter": "^4.0.1",
@@ -45,6 +46,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "husky": "^1.1.1",
     "live-server": "^1.2.0",
+    "rimraf": "^2.6.3",
     "standard-version": "^4.4.0"
   },
   "husky": {
