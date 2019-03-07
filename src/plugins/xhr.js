@@ -43,15 +43,28 @@ const XHR_CON = {
         },
         response (res) {
             let { data } = { ...res };
+            let message;
             if (data.code === 'no-login' && location.pathname !== '/login') {
-                Vue.prototype.$message({
-                    message: data.message,
-                    duration: 1000,
-                    onClose () {
-                        location.href = '/login';
-                    }
-                });
+                location.href = '/login';
+                return;
+            };
+            if (res.status >= 200 && res.status < 400) {
+                if (data.code !== 'success') {
+                    ({ message } = { ...data });
+                    Vue.prototype.$message({
+                        duration: 2000,
+                        message: data.message
+                    });
+                }
+            } else {
+                message = data.message || '';
             }
+            
+            if (message) {
+                let err = new Error();
+                err = { ...data };
+                throw err;
+            };
             return data;
         }
     }

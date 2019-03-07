@@ -15,17 +15,15 @@ vueRouter.beforeEach((to, from, next) => {
             next();
         } else {
             Vue.prototype.$api.loginInfo().then(res => {
-                if (res.code !== 'no-login') {
-                    STORE.commit('SET_LOGIN_INFOR', res.data);
-                    if (to.path === '/login') {
-                        Vue.prototype.$message({ type: 'success', message: '用户已登录' });
-                        next('/');
-                    } else {
-                        next();
-                    }
-                } else {
-                    if (to.path === '/login') next();
-                }
+                STORE.commit('SET_LOGIN_INFOR', res.data);
+                if (to.path === '/login') {
+                    Vue.prototype.$message({ type: 'success', message: '用户已登录' });
+                    next('/');
+                    return;
+                };
+                next()
+            }).catch((err) => {
+                if (err.code === 'no-login' && to.path === '/login') next();
             });
         };
     };

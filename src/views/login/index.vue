@@ -35,11 +35,7 @@ export default {
         submitForm () {
             let params = { ...this.ruleForm2 };
             this.XHR.post('/wjc/login', qs.stringify(params)).then((res) => {
-                if (res.code === 'success') {
-                    this.$router.push({ path: '/' });
-                } else {
-                    this.$message(res.message);
-                };
+                this.$router.push({ path: '/' });
             });
         },
         onReg () {

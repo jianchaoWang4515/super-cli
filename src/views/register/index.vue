@@ -31,18 +31,16 @@ export default {
     methods: {
         onSubmit () {
             this.XHR.post('/wjc/register', this.form).then(res => {
-                if (res.code === 'success') {
-                    this.$message({
-                        type: 'success',
-                        message: '注册成功， 请登录！'
-                    });
-                    this.$router.push({ path: 'login' });
-                }
+                this.$message({
+                    type: 'success',
+                    message: '注册成功!',
+                    duration: 500,
+                    onClose() {
+                        this.$router.go(-1);
+                    }
+                });
             });
         }
-    },
-    mounted () {
-        this.XHR.post('/wjc/login', { account: 'wangjianchao', password: '123456' });
     }
 };
 </script>
