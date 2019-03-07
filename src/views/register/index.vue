@@ -35,7 +35,7 @@ export default {
                     type: 'success',
                     message: '注册成功!',
                     duration: 500,
-                    onClose() {
+                    onClose () {
                         this.$router.go(-1);
                     }
                 });

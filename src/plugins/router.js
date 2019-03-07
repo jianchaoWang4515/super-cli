@@ -21,7 +21,7 @@ vueRouter.beforeEach((to, from, next) => {
                     next('/');
                     return;
                 };
-                next()
+                next();
             }).catch((err) => {
                 if (err.code === 'no-login' && to.path === '/login') next();
             });

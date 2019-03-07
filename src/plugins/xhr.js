@@ -59,7 +59,7 @@ const XHR_CON = {
             } else {
                 message = data.message || '';
             }
-            
+
             if (message) {
                 let err = new Error();
                 err = { ...data };
