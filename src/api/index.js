@@ -6,5 +6,11 @@ Vue.prototype.$api = {
      */
     loginInfo () {
         return Vue.prototype.XHR.get('/wjc/session/info');
+    },
+    /**
+     * 登出
+     */
+    logout () {
+        return Vue.prototype.XHR.delete('/wjc/session/logout');
     }
 };

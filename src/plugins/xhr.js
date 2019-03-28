@@ -51,10 +51,12 @@ const XHR_CON = {
             if (res.status >= 200 && res.status < 400) {
                 if (data.code !== 'success') {
                     ({ message } = { ...data });
-                    Vue.prototype.$message({
-                        duration: 2000,
-                        message: data.message
-                    });
+                    if (data.code === 'no-login' && location.pathname !== '/login') {
+                        Vue.prototype.$message({
+                            duration: 2000,
+                            message: data.message
+                        });
+                    }
                 }
             } else {
                 message = data.message || '';

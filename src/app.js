@@ -7,10 +7,12 @@ import App from './app.vue';
 import ElementUi from 'element-ui';
 import i18n from '@superchao/super/i18n';
 import '@/theme/index.scss';
+import globalStore from '@/store/global';
 
 Vue.use(ElementUi);
 // 注册工具
 Vue.use(TOOL);
+STORE.registerModule('global', globalStore);
 
 new Vue({
     el: '#app',

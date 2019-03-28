@@ -35,7 +35,7 @@ export default {
         submitForm () {
             let params = { ...this.ruleForm2 };
             this.XHR.post('/wjc/login', qs.stringify(params)).then((res) => {
-                this.$router.push({ path: '/' });
+                this.$router.push({ name: 'demo' });
             });
         },
         onReg () {
