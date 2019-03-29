@@ -1,6 +1,6 @@
 import { clone } from '@/untils';
 /**
- * 根据层级结构加上菜单id
+ * 动态向菜单数据增加有层级结构的id
  * {
  *  id: 1,
  *  children:[{
@@ -26,7 +26,6 @@ export const addMenuId = function (menu) {
     };
     transform(arr);
     return arr;
-    // return obj;
 };
 
 /**
@@ -55,7 +54,7 @@ export const getTopMenuId = function (menu, name) {
 };
 
 /**
- * 根据路由name获取当前父菜单id
+ * 根据路由name获取当前所在的层级菜单id
  * @param { String } menu 菜单数据
  * @param { String } name 路由name
  * @return { String|Number } id 根菜单id

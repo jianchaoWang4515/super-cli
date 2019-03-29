@@ -6,7 +6,7 @@ vueRouter.beforeEach((to, from, next) => {
     if (to.meta.noLoginAuth && to.path !== '/login') {
         next();
     } else {
-        Vue.prototype.$api.loginInfo().then(res => {
+        STORE.dispatch('global/getSession').then(res => {
             STORE.commit('SET_LOGIN_INFOR', res.data);
             if (to.path === '/login') {
                 Vue.prototype.$message({ type: 'success', message: '用户已登录' });

@@ -58,14 +58,6 @@ export default {
             });
             this.$i18n.locale = lang;
         },
-        /**
-         * 根据name获取当前路由菜单的根菜单Id
-         */
-        getRootMenuId (name) {
-            let data = this.keyNameMenu[name];
-            if (data) return data.id.split('-')[0];
-            return '-1';
-        },
         handleSelect (id) {
             this.$router.push({
                 name: this.keyIdMenu[id].name,

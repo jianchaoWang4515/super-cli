@@ -12,9 +12,11 @@
 </template>
 
 <script>
+import mixinsQuery from '@/mixins/query';
 import { mapState, mapGetters } from 'vuex';
 import { getMenuId } from '@/untils/menus';
 export default {
+    mixins: [mixinsQuery],
     name: 'myVueMenu',
     computed: {
         ...mapState('global', {
@@ -25,14 +27,15 @@ export default {
         activeIndex () {
             return getMenuId(this.menus, this.$route.name);
         },
+        /**
+         * 获取当前路由所在的左侧菜单数据
+         */
         leftMenus () {
             let prtId = getMenuId(this.menus, this.$route.name).split('-');
             prtId.pop();
             prtId = prtId.join('-');
             return this.keyIdMenu[prtId].children;
         }
-    },
-    watch: {
     },
     methods: {
         handleSelect (id) {

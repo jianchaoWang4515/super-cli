@@ -28,7 +28,7 @@ export const topMenu = [
                 'home'
             ]
         }, {
-            name: 'demoLeftMenu',
+            name: 'leftMenuTwo',
             title: '二级菜单二',
             children: []
         }]
