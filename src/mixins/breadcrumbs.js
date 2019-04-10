@@ -9,10 +9,6 @@ export default {
         this.updateCrumbs({ to, from });
         next();
     },
-    beforeRouteLeave (to, from, next) {
-        this.updateCrumbs({ to, from });
-        next();
-    },
     methods: {
         ...mapActions('breadcrumb', [
             'updateCrumbs'

@@ -5,7 +5,7 @@ import { transformMenuIdKey, transformMenuNameKey } from '@/untils/menus';
 const state = {
     loginInfor: '',
     menus: [],
-    topMenuId: 1 // 当前选中顶部菜单name
+    topMenuId: 1 // 当前选中顶部菜单Id
 };
 
 const mutations = {

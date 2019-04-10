@@ -1,8 +1,9 @@
 <template>
     <ul class="breadcrumb">
       <li class="breadcrumb-item" v-for="(item,index) in crumbs" :key="index">
-        <router-link v-if="index !== crumbs.length - 1" :to="{ name: item.name }">{{item.meta.title}}</router-link>
-        <span v-else>{{item.meta.title}}</span>
+        <span v-if="index === crumbs.length - 1 || item.noLink">{{item.meta.title}}</span>
+        <router-link v-else :to="{ name: item.name }">{{item.meta.title}}</router-link>
+        
       </li>
     </ul>
 </template>

@@ -13,8 +13,9 @@ export const topMenu = [
         children: []
     },
     {
-        name: 'menu',
+        name: 'leftMenu',
         title: '一级菜单一',
+        noRouter: true,
         children: [{
             name: 'leftMenu',
             title: '二级菜单一',
@@ -27,7 +28,8 @@ export const topMenu = [
                 }]
             }],
             child: [
-                'detail'
+                'detail',
+                'detail-children'
             ]
         }, {
             name: 'leftMenuTwo',

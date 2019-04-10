@@ -1,5 +1,8 @@
 <template>
-    <div>详情页</div>
+    <div>
+        <p>详情页</p>
+        <router-link to="/detail-children">子详情页</router-link>
+    </div>
 </template>
 
 <script>

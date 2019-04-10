@@ -9,6 +9,7 @@ import register from '@/routers/register';
 import login from '@/routers/login';
 import test from '@/routers/test';
 import notFount from '@/routers/404';
+import detailChildren from './routers/detail-children';
 export default {
     routes: [{
         path: '/',
@@ -21,7 +22,8 @@ export default {
             ...demo,
             ...leftMenuTwo,
             ...levelThree,
-            ...detail
+            ...detail,
+            ...detailChildren
         ]
     },
     ...register,
