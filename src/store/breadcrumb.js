@@ -43,43 +43,6 @@ const actions = {
                         crumbs.push(newCrumb);
                     }
                 }
-                // if (!keyNameMenu[to.name]) {
-                //     // 当前路由不存在菜单层级结构中
-                //     let isChild = false; // 判断是否
-                //     crumbs.forEach((item) => {
-                //         if (keyNameMenu[item.name] && keyNameMenu[item.name].child && keyNameMenu[item.name].child.includes(to.name)) {
-                //             isChild = true;
-                //         };
-                //     });
-                //     // 当前路由不存在菜单层级结构中在判断是否存在child中
-                //     if (!isChild) {
-                //         // 当前路由也不存在child中重新赋值面包屑
-                //         crumbs = [newCrumb];
-                //     } else {
-                //         crumbs.push(newCrumb);
-                //     }
-                // } else {
-                //     let prtId = keyNameMenu[to.name].prtId;
-                //     if (!prtId) {
-                //         crumbs = [newCrumb];
-                //     } else {
-                //         let prtName = keyIdMenu[prtId].name;
-                //         let isChildren = false;
-                //         crumbs.forEach((item) => {
-                //             if (item.name === prtName) {
-                //                 isChildren = true;
-                //             };
-                //             if (keyNameMenu[item.name] && keyNameMenu[item.name].prtId && (keyNameMenu[item.name].prtId === prtId)) {
-                //                 isChildren = false;
-                //             }
-                //             if (keyNameMenu[item.name] && keyNameMenu[item.name].id && (keyNameMenu[item.name].id === prtId)) {
-                //                 isChildren = true;
-                //             }
-                //         });
-                //         if (isChildren) crumbs.push(newCrumb);
-                //         else crumbs = [newCrumb];
-                //     }
-                // }
             }
             if (!crumbs.length) {
                 crumbs.push(newCrumb);

@@ -20,7 +20,7 @@ export const addMenuId = function (menu) {
                 item.prtId = '-1';
             } else {
                 item.id = `${prev}-${i + 1}`;
-                item.prtId = prev
+                item.prtId = prev;
             };
             if (item.children && item.children.length) {
                 transform(item.children, item.id);
