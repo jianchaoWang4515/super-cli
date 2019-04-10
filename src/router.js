@@ -1,5 +1,7 @@
 import home from '@/routers/home';
+import menu from '@/routers/menu';
 import leftMenu from '@/routers/leftMenu';
+import detail from '@/routers/detail';
 import demo from '@/routers/demo';
 import leftMenuTwo from '@/routers/leftMenuTwo';
 import levelThree from '@/routers/levelThree';
@@ -13,11 +15,13 @@ export default {
         component: () => import('@/views/components/layout/index.vue'),
         redirect: '/home',
         children: [
+            ...menu,
             ...home,
             ...leftMenu,
             ...demo,
             ...leftMenuTwo,
-            ...levelThree
+            ...levelThree,
+            ...detail
         ]
     },
     ...register,

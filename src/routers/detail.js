@@ -1,11 +1,11 @@
 export default [{
-    path: 'levelThree',
-    name: 'levelThree',
+    path: 'detail',
+    name: 'detail',
     components: {
         asiderMenu: () => import('@/views/components/menu'),
-        default: () => import('@/views/demo')
+        default: () => import('@/views/detail')
     },
     meta: {
-        title: '三级菜单'
+        title: '详情'
     }
 }];

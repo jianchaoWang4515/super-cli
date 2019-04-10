@@ -15,9 +15,12 @@ export const addMenuId = function (menu) {
     function transform (data, prev = '') {
         for (let i = 0; i < data.length; i++) {
             const item = data[i];
-            if (!prev) item.id = `${i + 1}`;
-            else {
+            if (!prev) {
+                item.id = `${i + 1}`;
+                item.prtId = '-1';
+            } else {
                 item.id = `${prev}-${i + 1}`;
+                item.prtId = prev
             };
             if (item.children && item.children.length) {
                 transform(item.children, item.id);

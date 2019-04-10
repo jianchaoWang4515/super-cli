@@ -8,6 +8,7 @@ import ElementUi from 'element-ui';
 import i18n from '@superchao/super/i18n';
 import '@/theme/index.scss';
 import globalStore from '@/store/global';
+import '@/components';
 
 Vue.use(ElementUi);
 // 注册工具

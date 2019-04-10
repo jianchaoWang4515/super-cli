@@ -29,6 +29,8 @@ module.exports = {
         "no-mixed-spaces-and-tabs": OFF, // spaces和tabs混合共用
         "no-new": OFF, 
         "no-tabs": OFF,
-        'semi': [WARN, "always"]
+        'semi': [WARN, "always"],
+        "no-unused-expressions": OFF,
+        "space-before-function-paren": [WARN, "always"]
     }
 };

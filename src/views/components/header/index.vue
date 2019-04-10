@@ -1,8 +1,10 @@
 <template>
     <div class="app-header app-flex">
-        <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
-            <el-menu-item v-for="menu in menus" :key="menu.id" :index="menu.id">{{menu.title}}</el-menu-item>
-        </el-menu>
+        <div v-if="activeIndex" class="su-flex-1">
+            <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
+                <el-menu-item v-for="menu in menus" :key="menu.id" :index="menu.id">{{menu.title}}</el-menu-item>
+            </el-menu>
+        </div>
         <ul class="local-box app-flex app-flex-o">
             <li class="local-box__item" :class="{active: lang === 'zh'}" @click="changelang('zh')">中</li>
             <li class="local-box__item" :class="{active: lang === 'en'}" @click="changelang('en')">英</li>
@@ -68,7 +70,7 @@ export default {
          * 设置跟菜单ID
          */
         setRootId () {
-            let rootId = getTopMenuId(this.menus, this.$route.name);
+            let rootId = getTopMenuId(this.menus, this.$route.name) || '';
             this.$store.commit('global/CHANGE_MENU_ID', rootId);
         }
     }

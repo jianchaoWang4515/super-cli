@@ -9,7 +9,7 @@
             <router-link to="/test">测试路由history模式</router-link>
         </el-button>
         <el-button>
-            <router-link to="/demo">demo</router-link>
+            <router-link to="/leftMenu">菜单页</router-link>
         </el-button>
         <i class="iconfont icon-zuzhiguanli"></i>
     </div>

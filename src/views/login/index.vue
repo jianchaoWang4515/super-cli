@@ -16,13 +16,9 @@
     </div>
 </template>
 <script>
-import store from '@/views/components/loginStore';
 import qs from 'qs';
 export default {
     name: 'login',
-    beforeCreate () {
-        if (!this.$store.state.myLoginStore) this.$store.registerModule('myLoginStore', store);
-    },
     data () {
         return {
             ruleForm2: {
@@ -35,7 +31,7 @@ export default {
         submitForm () {
             let params = { ...this.ruleForm2 };
             this.XHR.post('/wjc/login', qs.stringify(params)).then((res) => {
-                this.$router.push({ name: 'demo' });
+                this.$router.push({ name: 'home' });
             });
         },
         onReg () {

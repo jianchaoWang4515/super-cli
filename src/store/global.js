@@ -31,9 +31,15 @@ const actions = {
 };
 
 const getters = {
+    /**
+     * 菜单id字段为key值的对象
+     */
     keyIdMenu: state => {
         return transformMenuIdKey(state.menus);
     },
+    /**
+     * 把菜单转为name为key值的对象
+     */
     keyNameMenu: state => {
         return transformMenuNameKey(state.menus);
     }
