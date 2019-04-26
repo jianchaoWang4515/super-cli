@@ -32,7 +32,7 @@ const actions = {
                 let menus = currentMenuId.split('-');
                 menus.forEach((item, index) => {
                     let prtId = menus.slice(0, index + 1).join('-');
-                    let currentMenu = keyIdMenu[prtId]
+                    let currentMenu = keyIdMenu[prtId];
                     if (!currentMenu.noRouter) {
                         let crumbsBase = {
                             name: currentMenu.name,
@@ -53,7 +53,7 @@ const actions = {
                     try {
                         myCrumbs.forEach((item) => {
                             if (keyNameMenu[to.name] && keyNameMenu[item.name] && keyNameMenu[to.name].prtId === keyNameMenu[item.name].prtId) {
-                               // 如果访问的是面包屑中的同级菜单路由只需更新此路由并删除子面包屑
+                                // 如果访问的是面包屑中的同级菜单路由只需更新此路由并删除子面包屑
                                 isBrother = true;
                                 crumbs = crumbs.slice(0, crumbsName[item.name].index);
                                 crumbs.push(newCrumb);
@@ -73,7 +73,7 @@ const actions = {
                         }
                     }
                 }
-            } 
+            }
             if (!crumbs.length) {
                 crumbs.push(newCrumb);
             }

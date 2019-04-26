@@ -31,4 +31,4 @@ export default {
     }
 };
 </script>
-<style lang="scss" src="./style/index.scss"></style>
+<style lang="scss" src="./style/index.scss" scoped></style>

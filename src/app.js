@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import '@/plugins/xhr';
+import '@/plugins/axios';
 import '@/api';
 import { TOOL, STORE } from '@superchao/super';
 import router from '@/plugins/router';

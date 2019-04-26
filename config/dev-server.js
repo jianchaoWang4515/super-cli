@@ -11,7 +11,7 @@ module.exports = {
     port: 9001,
     proxy: [{
         context,
-        target: "http://127.0.0.1:9998/",
+        target: "http://127.0.0.1:8080/",
         pathRewrite
     }]
 };

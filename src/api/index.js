@@ -1,16 +1,17 @@
 import Vue from 'vue';
+import axios from 'axios';
 
 Vue.prototype.$api = {
     /**
      * 获取登录的用户信息
      */
     loginInfo () {
-        return Vue.prototype.XHR.get('/wjc/session/info');
+        return axios.get('/wjc/session/info');
     },
     /**
      * 登出
      */
     logout () {
-        return Vue.prototype.XHR.delete('/wjc/session/logout');
+        return axios.delete('/wjc/logout');
     }
 };

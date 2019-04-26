@@ -43,7 +43,7 @@ export default {
             this.$api.logout().then((res) => {
                 this.$message({
                     message: '登出成功',
-                    duration: 1000,
+                    duration: 500,
                     onClose: () => {
                         this.$router.push({
                             name: 'login'

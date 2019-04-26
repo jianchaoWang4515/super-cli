@@ -1,4 +1,4 @@
-<style lang="scss" src="./style/index.scss"></style>
+<style lang="scss" src="./style/index.scss" scoped></style>
 <template>
     <div class="vue-layout su-flex-space-between" su-role='cell'>
         <span v-t="'message.hello'"></span>
@@ -10,6 +10,9 @@
         </el-button>
         <el-button>
             <router-link to="/leftMenu">菜单页</router-link>
+        </el-button>
+        <el-button @click="getUsers">
+            获取用户列表(多次点击测试取消重复请求)
         </el-button>
         <i class="iconfont icon-zuzhiguanli"></i>
     </div>
@@ -25,9 +28,6 @@ export default {
             msg: 'Helllo my-vue'
         };
     },
-    created () {
-        // this.XHR.get('/wjc/get/2');
-    },
     computed: {
         model () {
             let result;
@@ -37,6 +37,12 @@ export default {
             if (model === 'pre') result = '我是预发布环境';
             if (model === 'pro') result = '我是生产环境';
             return result;
+        }
+    },
+    methods: {
+        getUsers() {
+            this.axios.get('/wjc/queryAllUsers', { params: { $isCancel: true } });
+            this.axios.get('/wjc/session/info', { params: { $isCancel: true } });
         }
     }
 };

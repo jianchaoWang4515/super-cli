@@ -16,7 +16,6 @@
     </div>
 </template>
 <script>
-import qs from 'qs';
 export default {
     name: 'login',
     data () {
@@ -30,9 +29,11 @@ export default {
     methods: {
         submitForm () {
             let params = { ...this.ruleForm2 };
-            this.XHR.post('/wjc/login', qs.stringify(params)).then((res) => {
+            this.axios.post('/wjc/login', params).then((res) => {
                 this.$router.push({ name: 'home' });
-            });
+            }).catch(err => {
+                this.$message(err.message);
+            })
         },
         onReg () {
             this.$router.push({ path: 'register' });
