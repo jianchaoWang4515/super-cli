@@ -33,7 +33,7 @@ export default {
                 this.$router.push({ name: 'home' });
             }).catch(err => {
                 this.$message(err.message);
-            })
+            });
         },
         onReg () {
             this.$router.push({ path: 'register' });

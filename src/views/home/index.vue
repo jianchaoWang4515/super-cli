@@ -40,7 +40,7 @@ export default {
         }
     },
     methods: {
-        getUsers() {
+        getUsers () {
             this.axios.get('/wjc/queryAllUsers', { params: { $isCancel: true } });
             this.axios.get('/wjc/session/info', { params: { $isCancel: true } });
         }
