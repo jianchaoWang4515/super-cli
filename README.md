@@ -8,4 +8,5 @@
 `2.super init <projectName>`</br>
 `3.cd <projectName>`</br>
 `5.npm install`</br>
-`6.npm start`</br>
+`6.npm run build:dll`</br>
+`7.npm start`</br>

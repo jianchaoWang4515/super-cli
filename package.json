@@ -6,17 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "eslint": "eslint src --ext .js,.vue",
-    "premy-webpack": "npm run dll",
-    "prestart": "npm run dll",
     "build": "cross-env NODE_ENV=pro npm run my-webpack",
     "build-pre": "cross-env NODE_ENV=pre npm run my-webpack",
     "build-test": "cross-env NODE_ENV=test npm run my-webpack",
+    "premy-webpack": "rimraf dist",
     "my-webpack": "webpack --progress --config ./node_modules/@superchao/webpack-sdk/webpack.config.dev.js",
     "lint": "eslint src --ext .js,.vue --fix",
     "start": "cross-env NODE_ENV=dev webpack-dev-server --progress --open --config ./node_modules/@superchao/webpack-sdk",
     "release": "standard-version",
-    "predll": "rimraf dist",
-    "dll": "webpack --progress --config ./node_modules/@superchao/webpack-sdk/webpack.config.dll.js"
+    "prebuild:dll": "rimraf public/*.js public/*.json",
+    "build:dll": "webpack --progress --config ./node_modules/@superchao/webpack-sdk/webpack.config.dll.js"
   },
   "author": "jianchao.wang",
   "license": "ISC",
@@ -35,7 +34,7 @@
   "devDependencies": {
     "@commitlint/cli": "^7.2.0",
     "@commitlint/config-conventional": "^7.1.2",
-    "@superchao/webpack-sdk": "^1.0.9",
+    "@superchao/webpack-sdk": "^1.1.5",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^12.0.0",
     "eslint-friendly-formatter": "^4.0.1",
