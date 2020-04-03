@@ -1,12 +1,14 @@
 import Vue from 'vue';
-import { STORE, ROUTER } from '@superchao/super';
+import Qa from '@/api';
+import { ROUTER, STORE } from '@superchao/super';
 
 let vueRouter = ROUTER({ mode: 'history' });
 vueRouter.beforeEach((to, from, next) => {
     if (to.meta.noLoginAuth && to.path !== '/login') {
         next();
     } else {
-        STORE.dispatch('global/getSession').then(res => {
+        Qa.session.sessionInfo().then((res) => {
+            console.log(res);
             STORE.commit('SET_LOGIN_INFOR', res.data);
             if (to.path === '/login') {
                 Vue.prototype.$message({ type: 'success', message: '用户已登录' });

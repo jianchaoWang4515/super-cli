@@ -55,5 +55,10 @@
       "pre-commit": "npm run lint",
       "pre-push": "eslint src --ext .js,.vue"
     }
-  }
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "IE 8"
+  ]
 }

@@ -40,7 +40,9 @@ export default {
     },
     methods: {
         logout () {
-            this.$api.logout().then((res) => {
+            this._api.login.logOut({
+                type: 'delete'
+            }).then((res) => {
                 this.$message({
                     message: '登出成功',
                     duration: 500,

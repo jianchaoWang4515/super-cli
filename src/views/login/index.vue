@@ -29,7 +29,10 @@ export default {
     methods: {
         submitForm () {
             let params = { ...this.ruleForm2 };
-            this.axios.post('/wjc/login', params).then((res) => {
+            this._api.login.logIn({
+                type: 'post',
+                data: params
+            }).then((res) => {
                 this.$router.push({ name: 'home' });
             }).catch(err => {
                 this.$message(err.message);

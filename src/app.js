@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import '@/plugins/axios';
-import '@/api';
+// import '@/plugins/axios';
+import API from '@/api';
 import { TOOL, STORE } from '@superchao/super';
 import router from '@/plugins/router';
 import App from './app.vue';
@@ -14,6 +14,7 @@ Vue.use(ElementUi);
 // 注册工具
 Vue.use(TOOL);
 STORE.registerModule('global', globalStore);
+Vue.prototype._api = API;
 
 new Vue({
     el: '#app',

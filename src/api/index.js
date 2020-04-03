@@ -1,17 +1,12 @@
-import Vue from 'vue';
-import axios from 'axios';
+import RegisterApi from './registerApi';
+import login from './login';
+import session from './session';
 
-Vue.prototype.$api = {
-    /**
-     * 获取登录的用户信息
-     */
-    loginInfo () {
-        return axios.get('/wjc/session/info');
-    },
-    /**
-     * 登出
-     */
-    logout () {
-        return axios.delete('/wjc/logout');
-    }
-};
+[
+    login,
+    session
+].forEach(item => {
+    const { modelName, data } = item;
+    RegisterApi.parseRouter(modelName, data);
+});
+export default RegisterApi;
