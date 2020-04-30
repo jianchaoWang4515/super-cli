@@ -5,6 +5,7 @@ export default [{
         default: () => import('@/views/home')
     },
     meta: {
-        title: '首页'
+        breadName: '首页',
+        isHome: true
     }
 }];

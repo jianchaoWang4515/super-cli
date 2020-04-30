@@ -31,6 +31,7 @@ module.exports = {
         "no-tabs": OFF,
         'semi': [WARN, "always"],
         "no-unused-expressions": OFF,
-        "space-before-function-paren": [WARN, "always"]
+        "space-before-function-paren": [WARN, "always"],
+        "no-debugger": OFF
     }
 };

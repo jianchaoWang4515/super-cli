@@ -5,6 +5,6 @@ export default [{
         default: () => import('@/views/menu')
     },
     meta: {
-        title: '一级菜单一'
+        breadName: '一级菜单一'
     }
 }];

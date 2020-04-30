@@ -8,7 +8,6 @@ vueRouter.beforeEach((to, from, next) => {
         next();
     } else {
         Qa.session.sessionInfo().then((res) => {
-            console.log(res);
             STORE.commit('SET_LOGIN_INFOR', res.data);
             if (to.path === '/login') {
                 Vue.prototype.$message({ type: 'success', message: '用户已登录' });
@@ -18,6 +17,8 @@ vueRouter.beforeEach((to, from, next) => {
             next();
         }).catch((err) => {
             if (err.code === 'no-login' && to.path === '/login') next();
+        }).finally(() => {
+            next();
         });
     };
     // 每次切换路由清空需要取消请求的url对象

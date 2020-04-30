@@ -8,7 +8,7 @@
                 <router-view name="asiderMenu"></router-view>
             </el-aside>
             <el-main>
-                <breadcrumb></breadcrumb>
+                <!-- <breadcrumb></breadcrumb> -->
                 <router-view></router-view>
             </el-main>
         </el-container>
@@ -16,17 +16,17 @@
 </template>
 <script>
 import MyVueHeader from '@/views/components/header/index';
-import breadcrumbsMixins from '@/mixins/breadcrumbs';
+// import breadcrumbsMixins from '@/mixins/breadcrumbs';
 
 export default {
-    mixins: [breadcrumbsMixins],
+    // mixins: [breadcrumbsMixins],
     name: 'layout',
     components: {
         MyVueHeader
     },
     data () {
         return {
-
+            a: 1
         };
     }
 };

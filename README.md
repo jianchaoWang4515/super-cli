@@ -1,6 +1,6 @@
 # webpack-vue
-> webpack+vue (内部嵌入了vuex,i18n国际化等插件)简单脚手架+nestJs 完成登录退出功能。</br>
->    > 注：后台接口使用nestJS,[项目地址](https://github.com/jianchaoWang4515/nestjs)（需安装Mysql）</br>
+> webpack+vue (内部嵌入了vuex,i18n国际化等插件)简单脚手架 完成登录退出功能。</br>
+>    >(有自动化面包屑及api封装)</br>
 >    >(建议使用cli命令下载)</br>
 
 

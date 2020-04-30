@@ -1,10 +1,11 @@
 <template>
     <div class="app-header app-flex">
-        <div v-if="activeIndex" class="su-flex-1">
+        <sp-breadcrumb></sp-breadcrumb>
+        <!-- <div v-if="activeIndex" class="su-flex-1">
             <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
                 <el-menu-item v-for="menu in menus" :key="menu.id" :index="menu.id">{{menu.title}}</el-menu-item>
             </el-menu>
-        </div>
+        </div> -->
         <ul class="local-box app-flex app-flex-o">
             <li class="local-box__item" :class="{active: lang === 'zh'}" @click="changelang('zh')">中</li>
             <li class="local-box__item" :class="{active: lang === 'en'}" @click="changelang('en')">英</li>

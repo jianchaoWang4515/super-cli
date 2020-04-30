@@ -6,6 +6,6 @@ export default [{
         default: () => import('@/views/detail-children')
     },
     meta: {
-        title: '子详情'
+        breadName: '子详情'
     }
 }];

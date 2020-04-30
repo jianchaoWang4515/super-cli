@@ -6,6 +6,9 @@ export default [{
         default: () => import('@/views/leftMenu')
     },
     meta: {
-        title: '菜单一'
+        breadName: '菜单一',
+        childNames: [
+            'detail'
+        ]
     }
 }];

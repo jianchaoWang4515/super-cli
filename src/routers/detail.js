@@ -6,6 +6,9 @@ export default [{
         default: () => import('@/views/detail')
     },
     meta: {
-        title: '详情'
+        breadName: '详情',
+        childNames: [
+            'detail-children'
+        ]
     }
 }];

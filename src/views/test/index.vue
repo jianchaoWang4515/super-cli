@@ -1,6 +1,7 @@
 <template>
     <div>
         跳转成功
+        <router-view></router-view>
     </div>
 </template>
 <script>
