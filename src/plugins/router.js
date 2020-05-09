@@ -17,9 +17,8 @@ vueRouter.beforeEach((to, from, next) => {
             next();
         }).catch((err) => {
             if (err.code === 'no-login' && to.path === '/login') next();
-        }).finally(() => {
-            next();
         });
+        next();
     };
     // 每次切换路由清空需要取消请求的url对象
     if (Object.keys(window.__axiosPromiseArr).length) window.__axiosPromiseArr = {};

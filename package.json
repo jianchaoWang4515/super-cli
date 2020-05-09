@@ -24,6 +24,7 @@
     "@superchao/super-style": "^1.0.2",
     "axios": "^0.18.0",
     "element-ui": "^2.3.8",
+    "sp-breadcrumbs": "^1.0.5",
     "vue": "^2.5.16",
     "vue-axios": "^2.1.4",
     "vue-i18n": "^8.0.0",

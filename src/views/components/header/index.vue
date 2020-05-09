@@ -1,6 +1,7 @@
 <template>
     <div class="app-header app-flex">
-        <sp-breadcrumb></sp-breadcrumb>
+        <sp-breadcrumbs>
+        </sp-breadcrumbs>
         <!-- <div v-if="activeIndex" class="su-flex-1">
             <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
                 <el-menu-item v-for="menu in menus" :key="menu.id" :index="menu.id">{{menu.title}}</el-menu-item>
@@ -16,7 +17,7 @@
 <script>
 import mixinsQuery from '@/mixins/query';
 import { mapState, mapGetters } from 'vuex';
-import { getTopMenuId } from '@/untils/menus';
+import { getTopMenuId } from '@/utils/menus';
 export default {
     mixins: [mixinsQuery],
     name: 'MyVueHeader',

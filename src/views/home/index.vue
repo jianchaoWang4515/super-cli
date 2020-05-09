@@ -11,10 +11,14 @@
         <el-button>
             <router-link to="/leftMenu">菜单页</router-link>
         </el-button>
+        <el-button>
+            <router-link to="/home/test">children</router-link>
+        </el-button>
         <el-button @click="getUsers">
             获取用户列表(多次点击测试取消重复请求)
         </el-button>
         <i class="iconfont icon-zuzhiguanli"></i>
+        <router-view></router-view>
     </div>
 </template>
 <script>

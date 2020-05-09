@@ -1,4 +1,4 @@
-import { addMenuId } from '@/untils/menus';
+import { addMenuId } from '@/utils/menus';
 /**
  * 菜单数据
  * name字段当noRouter不存在时要保证是唯一值

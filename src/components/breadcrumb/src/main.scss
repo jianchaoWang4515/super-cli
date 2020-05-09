@@ -1,0 +1,22 @@
+.sp-breadcrumbs{
+    line-height: 1;
+    &__item{
+        font-size: 0;
+        &:last-child{
+            .sp-breadcrumbs__separator{
+                display: none;
+            }
+        }
+    }
+    &__link{
+        font-size: 14px;
+        .link-disabled{
+            color: #606266;
+        }
+    }
+    &__separator{
+        font-size: 12px;
+        color: #c0c4cc;
+        margin: 0 8px;
+    }
+}

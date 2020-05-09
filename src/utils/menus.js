@@ -1,4 +1,4 @@
-import { clone } from '@/untils';
+import { clone } from '@/utils';
 /**
  * 动态向菜单数据增加有层级结构的id
  * {

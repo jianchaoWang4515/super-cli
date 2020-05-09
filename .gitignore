@@ -3,3 +3,6 @@
 .vscode
 node_modules/
 dist/
+src/components/breadcrumb
+publish/*.dll.js
+publish/vendor_manifest.json

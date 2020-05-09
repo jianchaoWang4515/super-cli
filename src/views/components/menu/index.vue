@@ -14,7 +14,7 @@
 <script>
 import mixinsQuery from '@/mixins/query';
 import { mapState, mapGetters } from 'vuex';
-import { getMenuId } from '@/untils/menus';
+import { getMenuId } from '@/utils/menus';
 export default {
     mixins: [mixinsQuery],
     name: 'myVueMenu',

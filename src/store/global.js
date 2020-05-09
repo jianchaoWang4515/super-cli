@@ -1,5 +1,5 @@
 import { allMenus } from '@/menu';
-import { transformMenuIdKey, transformMenuNameKey } from '@/untils/menus';
+import { transformMenuIdKey, transformMenuNameKey } from '@/utils/menus';
 const state = {
     loginInfor: '',
     menus: allMenus,

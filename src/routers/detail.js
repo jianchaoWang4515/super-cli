@@ -1,5 +1,5 @@
 export default [{
-    path: 'detail',
+    path: 'detail/:id',
     name: 'detail',
     components: {
         asiderMenu: () => import('@/views/components/menu'),
