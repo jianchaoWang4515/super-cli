@@ -45,8 +45,13 @@ export default {
     },
     methods: {
         getUsers () {
-            this.axios.get('/wjc/queryAllUsers', { params: { $isCancel: true } });
-            this.axios.get('/wjc/session/info', { params: { $isCancel: true } });
+            this._api.session.sessionInfo({
+                data: {
+                    params: {
+                        $isCancel: true
+                    }
+                }
+            });
         }
     }
 };
