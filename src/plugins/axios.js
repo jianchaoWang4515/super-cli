@@ -43,7 +43,6 @@ axios.interceptors.request.use(function (config) {
 axios.defaults.headers['X-Requested-With'] = 'XMLHttpRequest';
 
 axios.defaults.transformResponse = [(data) => {
-    debugger;
     data = JSON.parse(data);
     if (data.code === 'no-login' && location.pathname !== '/login') {
         Vue.prototype.$message({

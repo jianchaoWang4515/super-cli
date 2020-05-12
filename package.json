@@ -22,6 +22,7 @@
   "dependencies": {
     "@superchao/super": "^1.0.8",
     "@superchao/super-style": "^1.0.2",
+    "amfe-flexible": "^2.2.1",
     "axios": "^0.18.0",
     "element-ui": "^2.3.8",
     "sp-breadcrumbs": "^1.0.5",
@@ -47,6 +48,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "husky": "^1.1.1",
     "live-server": "^1.2.0",
+    "postcss-pxtorem": "^5.1.1",
     "rimraf": "^2.6.3",
     "standard-version": "^4.4.0"
   },

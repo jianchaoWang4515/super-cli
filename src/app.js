@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import 'amfe-flexible';
 import API from '@/api';
 import { TOOL, STORE } from '@superchao/super';
 import router from '@/plugins/router';
